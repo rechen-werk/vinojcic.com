@@ -1,0 +1,7 @@
+services:
+  vinojcic-com-app:
+    container_name: vinojcic-com-app-container
+    build: .
+    image: vinojcic-com:v0.0.0
+    ports:
+      - "8080:80"
