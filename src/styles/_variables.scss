@@ -1,0 +1,30 @@
+$text-color: text-color;
+$heading-color: heading-color;
+$primary-color: primary-color;
+$secondary-color: secondary-color;
+$bg-color: bg-color;
+$bg-box-color: bg-box-color;
+$primary-box-color: primary-box-color;
+$secondary-box-color: secondary-box-color;
+
+$theme-light:(
+  $text-color: #22333b,
+  $heading-color: #22333b,
+  $primary-color: #780000,
+  $secondary-color: #003049,
+  $bg-color: #fdf0d5,
+  $bg-box-color: #ffd786,
+  $primary-box-color: #c1121f,
+  $secondary-box-color: #669bbc,
+);
+
+$theme-dark:(
+  $text-color: #fdf0d5,
+  $heading-color: #fdf0d5,
+  $primary-color: #c1121f,
+  $secondary-color: #669bbc,
+  $bg-color: #22333b,
+  $bg-box-color: #577586,
+  $primary-box-color: #780000,
+  $secondary-box-color: #003049,
+);

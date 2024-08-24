@@ -1,0 +1,27 @@
+@import "../styles";
+
+.container {
+  height: 100%;
+  display: none;
+  width: 0;
+  @media (min-width: $s-screen) {
+    display: flex;
+    width: 125px;
+  }
+  @media (min-width: $m-screen) {
+    display: flex;
+    width: 175px;
+  }
+  @media (min-width: $l-screen) {
+    display: flex;
+    width: 225px;
+  }
+  @media (min-width: $xl-screen) {
+    display: flex;
+    width: 325px;
+  }
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+}
