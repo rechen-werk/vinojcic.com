@@ -1,27 +1,32 @@
 @import "../styles";
 
-.container {
-  height: 100%;
-  display: none;
-  width: 0;
-  @media (min-width: $s-screen) {
+:host {
+  .container {
+    height: 100%;
     display: flex;
-    width: 125px;
-  }
-  @media (min-width: $m-screen) {
-    display: flex;
-    width: 175px;
-  }
-  @media (min-width: $l-screen) {
-    display: flex;
-    width: 225px;
-  }
-  @media (min-width: $xl-screen) {
-    display: flex;
-    width: 325px;
-  }
-  main {
-    display: flex;
-    flex-direction: column;
+
+    width: 100vw;
+    @media (min-width: $s-screen) {
+      width: 125px;
+    }
+    @media (min-width: $m-screen) {
+      width: 175px;
+    }
+    @media (min-width: $l-screen) {
+      width: 225px;
+    }
+    @media (min-width: $xl-screen) {
+      width: 325px;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &.hidden {
+      display: none;
+      width: 0;
+    }
   }
 }

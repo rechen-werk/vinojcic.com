@@ -1,4 +1,5 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
+import {ControlService} from "../../services/controll-service/control.service";
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +10,9 @@ import {Component, ElementRef, ViewChild} from '@angular/core';
 })
 export class NavbarComponent {
   @ViewChild('themeToggle') themeSwitch!: ElementRef<HTMLInputElement>;
-  constructor() {
+  constructor(private controlService: ControlService) {}
+  toggleSidebar() {
+    this.controlService.toggleSidebar();
   }
   toggleTheme() {
     const isDark = document.documentElement.classList.contains('dark');
@@ -20,6 +23,5 @@ export class NavbarComponent {
 
     document.documentElement.classList.remove(remove);
     document.documentElement.classList.add(add);
-
   }
 }
