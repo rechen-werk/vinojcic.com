@@ -1,7 +1,8 @@
-<div class="theme-switch-wrapper">
-  <label class="theme-switch" for="checkbox">
-    <input type="checkbox" id="checkbox" #themeSwitch (change)="toggleTheme()"/>
-    <div class="slider round"></div>
+<div class="container box">
+  <button id="sidebarToggle" #sidebarToggle (change)="toggleTheme()">#</button>
+
+  <label class="switch theme">
+    <input type="checkbox" id="themeToggle" #themeToggle (change)="toggleTheme()"/>
+    <span class="slider round theme"></span>
   </label>
-  <em>Switch</em>
 </div>

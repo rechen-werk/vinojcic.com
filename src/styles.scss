@@ -5,7 +5,6 @@ $m-screen: 768px;
 $l-screen: 992px;
 $xl-screen: 1200px;
 
-
 @function theme($key, $theme-map) {
   @return map-get($theme-map, $key);
 }
@@ -65,4 +64,73 @@ html {
   &.dark {
     @include apply-theme($theme-dark);
   }
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 28.3px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  &.theme {
+    background-color: #2196F3;
+  }
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 21.6px;
+  width: 21.6px;
+  left: 3.33px;
+  bottom: 3.33px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+.slider.theme:before {
+  background-color: yellow;
+}
+
+input:checked + .slider {
+  &.theme{
+    background-color: #000;
+  }
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(21.6px);
+  -ms-transform: translateX(21.6px);
+  transform: translateX(21.6px);
+  background-color: white;
+}
+
+.slider.round {
+  border-radius: 28.3px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }

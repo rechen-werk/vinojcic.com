@@ -8,7 +8,7 @@ import {Component, ElementRef, ViewChild} from '@angular/core';
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
-  @ViewChild('themeSwitch') themeSwitch!: ElementRef<HTMLInputElement>;
+  @ViewChild('themeToggle') themeSwitch!: ElementRef<HTMLInputElement>;
   constructor() {
   }
   toggleTheme() {
