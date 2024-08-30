@@ -24,6 +24,15 @@ $xl-screen: 1200px;
     color: theme($text-color, $theme);
     background-color: theme($bg-box-color, $theme);
   }
+  .sidebar {
+    color: theme($text-color, $theme);
+    background-color: theme($sidebar-background-color, $theme);
+  }
+  .navbar {
+    color: theme($text-color, $theme);
+    background-color: theme($navbar-background-color, $theme);
+    border-color: theme($navbar-border-clolor, $theme);
+  }
 
   h1, h2, h3, h4, h5, h6 {
     color: theme($heading-color, $theme);

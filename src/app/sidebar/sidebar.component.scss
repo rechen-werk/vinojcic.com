@@ -4,6 +4,10 @@
   .container {
     height: 100%;
     display: flex;
+    flex-direction: column;
+    gap: 10%;
+
+    padding: 24px;
 
     width: 100vw;
     @media (min-width: $s-screen) {
@@ -19,9 +23,28 @@
       width: 325px;
     }
 
-    main {
+    .group {
       display: flex;
       flex-direction: column;
+      gap: 10px;
+      a {
+        font-size: 28px;
+        font-weight: bold;
+        text-decoration: none;
+        color: red;
+        &:link {
+          color: red;
+        }
+        &:visited {
+          color: red;
+        }
+        &:hover {
+          color: hotpink;
+        }
+        &:active {
+          color: blue;
+        }
+      }
     }
 
     &.hidden {

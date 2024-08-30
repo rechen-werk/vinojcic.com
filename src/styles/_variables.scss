@@ -6,16 +6,22 @@ $bg-color: bg-color;
 $bg-box-color: bg-box-color;
 $primary-box-color: primary-box-color;
 $secondary-box-color: secondary-box-color;
+$sidebar-background-color: sidebar-background-color;
+$navbar-background-color: navbar-background-clolor;
+$navbar-border-clolor: navbar-border-clolor;
 
 $theme-light:(
   $text-color: #22333b,
   $heading-color: #22333b,
   $primary-color: #780000,
   $secondary-color: #003049,
-  $bg-color: #fdf0d5,
+  $bg-color: #edf2f4,
   $bg-box-color: #ffd786,
   $primary-box-color: #c1121f,
   $secondary-box-color: #669bbc,
+  $sidebar-background-color: #f5fff6,
+  $navbar-background-color: #3ca64d,
+  $navbar-border-clolor: #1b862f,
 );
 
 $theme-dark:(
@@ -26,5 +32,7 @@ $theme-dark:(
   $bg-color: #22333b,
   $bg-box-color: #577586,
   $primary-box-color: #780000,
-  $secondary-box-color: #003049,
+  $sidebar-background-color: #1f261f,
+  $navbar-background-color: #3ca64d,
+  $navbar-border-clolor: #146b24,
 );
