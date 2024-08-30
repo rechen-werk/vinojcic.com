@@ -1,7 +1,18 @@
+@import "../styles";
+
 :host {
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: row;
-  overflow: clip;
+
+  flex-direction: column;
+  overflow: scroll;
+  @media (min-width: $s-screen) {
+    flex-direction: row;
+    overflow: clip;
+  }
+  .hidden {
+    display: none;
+    width: 0;
+  }
 }

@@ -1,3 +1,10 @@
+@import "../styles";
+
 :host {
-  overflow: auto;
+  flex-grow: 1;
+  overflow: visible;
+  @media (min-width: $s-screen) {
+    overflow: auto;
+  }
+
 }

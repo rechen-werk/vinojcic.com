@@ -1,32 +1,32 @@
 @import "../styles";
 
 :host {
+  width: 100%;
+  display: flex;
+  @media (min-width: $s-screen) {
+    width: 125px;
+  }
+  @media (min-width: $m-screen) {
+    width: 175px;
+  }
+  @media (min-width: $l-screen) {
+    width: 225px;
+  }
+  @media (min-width: $xl-screen) {
+    width: 325px;
+  }
   .container {
-    height: 100%;
+    flex: 1;
+    padding: 24px;
     display: flex;
     flex-direction: column;
     gap: 10%;
-
-    padding: 24px;
-
-    width: 100vw;
-    @media (min-width: $s-screen) {
-      width: 125px;
-    }
-    @media (min-width: $m-screen) {
-      width: 175px;
-    }
-    @media (min-width: $l-screen) {
-      width: 225px;
-    }
-    @media (min-width: $xl-screen) {
-      width: 325px;
-    }
 
     .group {
       display: flex;
       flex-direction: column;
       gap: 10px;
+
       a {
         font-size: 28px;
         font-weight: bold;
@@ -40,16 +40,12 @@
         }
         &:hover {
           color: hotpink;
+          background-color: transparentize(gray, 0.5);
         }
         &:active {
           color: blue;
         }
       }
-    }
-
-    &.hidden {
-      display: none;
-      width: 0;
     }
   }
 }
