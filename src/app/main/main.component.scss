@@ -9,7 +9,7 @@
   overflow: scroll;
   @media (min-width: $s-screen) {
     flex-direction: row;
-    overflow: clip;
+    overflow: hidden;
   }
   .hidden {
     display: none;

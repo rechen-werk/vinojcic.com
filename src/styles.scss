@@ -33,6 +33,10 @@ $xl-screen: 1200px;
     background-color: theme($navbar-background-color, $theme);
     border-color: theme($navbar-border-clolor, $theme);
   }
+  .footer {
+    color: theme($footer-text-color, $theme);
+    background-color: theme($footer-background-color, $theme);
+  }
 
   h1, h2, h3, h4, h5, h6 {
     color: theme($heading-color, $theme);
@@ -59,6 +63,12 @@ $xl-screen: 1200px;
   @media (min-width: $xl-screen) {
     p, a {
       font-size: 18px;
+    }
+  }
+  .strike {
+    text-decoration: line-through;
+    * {
+      text-decoration: line-through;
     }
   }
 }

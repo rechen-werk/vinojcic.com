@@ -4,20 +4,12 @@
   width: 100%;
   display: flex;
   @media (min-width: $s-screen) {
-    width: 125px;
-  }
-  @media (min-width: $m-screen) {
-    width: 175px;
-  }
-  @media (min-width: $l-screen) {
-    width: 225px;
-  }
-  @media (min-width: $xl-screen) {
-    width: 325px;
+    width: fit-content;
   }
   .container {
+    width: 100%;
     flex: 1;
-    padding: 24px;
+    padding: 24px 64px 24px 24px;
     display: flex;
     flex-direction: column;
     gap: 10%;
@@ -32,6 +24,7 @@
         font-weight: bold;
         text-decoration: none;
         color: red;
+        white-space: nowrap;
         &:link {
           color: red;
         }

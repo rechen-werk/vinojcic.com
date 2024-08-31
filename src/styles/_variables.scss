@@ -9,6 +9,8 @@ $secondary-box-color: secondary-box-color;
 $sidebar-background-color: sidebar-background-color;
 $navbar-background-color: navbar-background-clolor;
 $navbar-border-clolor: navbar-border-clolor;
+$footer-text-color: footer-text-color;
+$footer-background-color: footer-background-color;
 
 $theme-light:(
   $text-color: #22333b,
@@ -22,6 +24,8 @@ $theme-light:(
   $sidebar-background-color: #f5fff6,
   $navbar-background-color: #3ca64d,
   $navbar-border-clolor: #1b862f,
+  $footer-text-color: #edf2f4,
+  $footer-background-color: #2d2d2d,
 );
 
 $theme-dark:(
@@ -35,4 +39,6 @@ $theme-dark:(
   $sidebar-background-color: #1f261f,
   $navbar-background-color: #3ca64d,
   $navbar-border-clolor: #146b24,
+  $footer-text-color: #edf2f4,
+  $footer-background-color: #2d2d2d,
 );
