@@ -4,5 +4,28 @@
   margin: auto 0 0;
   .container {
     padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    h4 {
+      margin: 0 auto 16px auto;
+      font-size: 14px;
+    }
+    .social-media {
+      display: flex;
+      flex-direction: row;
+      margin: 0 auto;
+      width: 20%;
+      gap: 40px;
+      min-width: fit-content;
+      justify-content: space-between;
+
+      a {
+        font-size: 36px;
+        text-decoration: none;
+        color: #cccccc;
+        white-space: nowrap;
+      }
+    }
   }
 }
