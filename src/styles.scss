@@ -31,7 +31,7 @@ $xl-screen: 1200px;
   .navbar {
     color: theme($text-color, $theme);
     background-color: theme($navbar-background-color, $theme);
-    border-color: theme($navbar-border-clolor, $theme);
+    border-color: theme($navbar-border-color, $theme);
   }
   .footer {
     color: theme($footer-text-color, $theme);
@@ -70,6 +70,9 @@ $xl-screen: 1200px;
     * {
       text-decoration: line-through;
     }
+  }
+  .nav-border {
+    border-color: $navbar-border-color;
   }
 }
 
