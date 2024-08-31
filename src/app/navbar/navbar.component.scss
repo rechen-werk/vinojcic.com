@@ -1,3 +1,5 @@
+@import "../../styles/variables";
+
 :host {
   width: 100%;
   max-width: 100%;
@@ -9,5 +11,14 @@
    padding: 16px 12px;
    border-bottom-width: 2px;
    border-bottom-style: solid;
+   button {
+     border: 1px solid $navbar-border-clolor;
+     background-color: transparent;
+     margin: 0;
+     padding: 0;
+     &:hover {
+       background-color: transparentize(white, 0.7);
+     }
+   }
  }
 }

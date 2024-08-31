@@ -1,10 +1,13 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
 import {ControlService} from "../../services/controll-service/control.service";
+import {IconComponent} from "../../lib/icon/icon.component";
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [],
+    imports: [
+        IconComponent
+    ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
