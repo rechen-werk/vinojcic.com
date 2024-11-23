@@ -1,0 +1,27 @@
+<a [href]="card.link" *ngIf="card.link">
+  <ng-container [ngTemplateOutlet]="cardContent"/>
+</a>
+<ng-container *ngIf="!card.link" [ngTemplateOutlet]="cardContent"/>
+
+<ng-template #cardContent>
+  <div class="card container"
+       [style.height.px]="card.height ? card.height: 500"
+       [style.width.px]="card.width ? card.width: 400">
+    <div class="image"
+         *ngIf="card.imgPosition === Position.TOP || card.imgPosition === Position.LEFT">
+      <img [src]="card.img" [alt]="'Image for' + card.title"/>
+    </div>
+    <div class="content">
+      <h4>
+        {{card.title}}
+      </h4>
+      <p>
+        {{card.description}}
+      </p>
+    </div>
+    <div class="image"
+         *ngIf="card.imgPosition === Position.BOTTOM || card.imgPosition === Position.RIGHT">
+      <img [src]="card.img" [alt]="'Image for' + card.title"/>
+    </div>
+  </div>
+</ng-template>

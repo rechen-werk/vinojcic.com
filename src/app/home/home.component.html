@@ -16,11 +16,14 @@
       <p>
         Feel free to explore my projects, and don’t hesitate to reach out if you’d like to connect!
       </p>
-      <h2>Contact Details</h2>
-      <p>Email: adrian.vinojcic&#64;gmail.com</p>
     </section>
     <section id="education">
       <h2>Education</h2>
+      <h3>Thesis and Papers</h3>
+      <div class="cards">
+        <app-card *ngFor="let card of thesisCards" [card]="card"/>
+        <app-card *ngFor="let card of paperCards" [card]="card"/>
+      </div>
     </section>
     <section id="work">
       <h2>Work</h2>
