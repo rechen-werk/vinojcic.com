@@ -2,10 +2,7 @@
 
 :host {
   flex-grow: 1;
-  overflow: visible;
-  @media (min-width: $s-screen) {
-    overflow: auto;
-  }
+  overflow: auto;
   .container {
     min-height: 100%;
     display: flex;

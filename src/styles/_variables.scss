@@ -12,23 +12,7 @@ $navbar-border-color: navbar-border-color;
 $footer-text-color: footer-text-color;
 $footer-background-color: footer-background-color;
 
-$theme-light:(
-  $text-color: #22333b,
-  $heading-color: #22333b,
-  $primary-color: #780000,
-  $secondary-color: #003049,
-  $bg-color: #edf2f4,
-  $bg-box-color: #ffd786,
-  $primary-box-color: #c1121f,
-  $secondary-box-color: #669bbc,
-  $sidebar-background-color: #f5fff6,
-  $navbar-background-color: #3ca64d,
-  $navbar-border-color: #1b862f,
-  $footer-text-color: #edf2f4,
-  $footer-background-color: #2d2d2d,
-);
-
-$theme-dark:(
+$theme:(
   $text-color: #fdf0d5,
   $heading-color: #fdf0d5,
   $primary-color: #c1121f,

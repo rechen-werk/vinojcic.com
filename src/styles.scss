@@ -94,13 +94,7 @@ $xl-screen: 1200px;
 html {
   width: 100vw;
   height: 100vh;
-
-  &.light {
-    @include apply-theme($theme-light);
-  }
-  &.dark {
-    @include apply-theme($theme-dark);
-  }
+  @include apply-theme($theme);
 }
 
 .switch {
