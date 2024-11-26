@@ -11,7 +11,10 @@
       }
 
       &#about {
-        padding: 0 15%;
+        padding: 0 5%;
+        @media (min-width: $m-screen) {
+          padding: 0 15%;
+        }
 
         * {
           text-align: center;
