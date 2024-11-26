@@ -32,6 +32,7 @@ $xl-screen: 1200px;
     color: theme($text-color, $theme);
     background-color: theme($navbar-background-color, $theme);
     border-color: theme($navbar-border-color, $theme);
+    text-decoration: none;
   }
   .footer {
     color: theme($footer-text-color, $theme);
@@ -49,7 +50,7 @@ $xl-screen: 1200px;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    text-transform: uppercase;
+
   }
   a {
     color: theme($link-color, $theme);
