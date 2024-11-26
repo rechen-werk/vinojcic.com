@@ -67,4 +67,21 @@ export class HomeComponent {
       description: 'In order to get admitted to university in austria up until 2024 it was required to write some kind of pre-scientific work. My work written in german and talks about the number pi.'
     }
   ]
+
+  age(day: number, month: number, year: number): number {
+    const today = new Date();
+    const y = today.getFullYear();
+    const m = today.getMonth() + 1;
+    const d = today.getDate();
+
+    if (m < month) {
+      return y - (year + 1);
+    } else if (m > month) {
+      return y - year;
+    } else if (d < day) {
+      return y - (year + 1);
+    } else {
+      return y - year;
+    }
+  }
 }

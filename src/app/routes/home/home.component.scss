@@ -5,6 +5,19 @@
     padding: 24px 10%;
 
     section {
+      h1 {
+        text-transform: uppercase;
+        font-size: 48px;
+      }
+
+      &#about {
+        padding: 0 15%;
+
+        * {
+          text-align: center;
+          line-height: 1.2;
+        }
+      }
       &#education {
         .cards {
           display: flex;
