@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {FooterComponent} from "../../footer/footer.component";
 import {CardComponent} from "../../card/card.component";
 import {Card, Position} from "../../../model/Card";
 import {NgForOf} from "@angular/common";
@@ -8,7 +7,6 @@ import {NgForOf} from "@angular/common";
   selector: 'app-home',
   standalone: true,
   imports: [
-    FooterComponent,
     CardComponent,
     NgForOf
   ],
