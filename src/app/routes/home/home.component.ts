@@ -16,7 +16,7 @@ import {NgForOf} from "@angular/common";
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-  thesisCards: Card[] = [
+  paperCards: Card[] = [
     {
       img: 'assets/card-images/msc.png',
       imgPosition: Position.TOP,
@@ -26,6 +26,14 @@ export class HomeComponent {
       //link: '/master-thesis'
     },
     {
+      img: 'assets/card-images/memory.png',
+      imgPosition: Position.TOP,
+      title: 'Seminar Paper',
+      topic: 'University',
+      date: '3. July 2024',
+      description: 'In the course of our master studies Alexander Voglsperger and I described some ideas on Data Structure Analysis and Memory Bloat in Unmanaged Languages.',
+    },
+    {
       img: 'assets/card-images/bsc.png',
       imgPosition: Position.TOP,
       title: 'Bachelor Thesis',
@@ -33,16 +41,6 @@ export class HomeComponent {
       date: '7 Dec. 2023',
       description: 'As my Bachelor Project I have created a Moodle manager, which downloads Homeworks from Moodle and distributes them via Discord.',
       link: '/bachelor-thesis'
-    }
-  ]
-  paperCards: Card[] = [
-    {
-      img: 'assets/card-images/memory.png',
-      imgPosition: Position.TOP,
-      title: 'Seminar Paper',
-      topic: 'University',
-      date: '3. July 2024',
-      description: 'In this paper Alexander Voglsperger and I described some ideas on Data Structure Analysis and Memory Bloat in Unmanaged Languages.',
     },
     {
       img: 'assets/card-images/async.png',
@@ -58,7 +56,15 @@ export class HomeComponent {
       title: 'Course Paper',
       topic: 'University',
       date: '1 Jun. 2022',
-      description: 'In this paper Alexander Voglsperger and I compared a few Live Sharing tools. This work is a paper to train the process of writing, in order to write good bachelor- and master thesis later.'
+      description: 'In this paper Alexander Voglsperger and I compared a few Live Sharing tools. This work is a paper to train the process of writing, in order to write good bachelor- and master thesis later on in our university careers.'
+    },
+    {
+      img: 'assets/card-images/vwa.png',
+      imgPosition: Position.TOP,
+      title: 'Pre-scientific work',
+      topic: 'School',
+      date: '28 Feb. 2019',
+      description: 'In order to get admitted to university in austria up until 2024 it was required to write some kind of pre-scientific work. My work written in german and talks about the number pi.'
     }
   ]
 }
