@@ -2,11 +2,10 @@ export interface Card {
   img: string;
   imgPosition: Position;
   title: string;
+  topic?: string;
+  date?: string;
   description: string;
   link?: string;
-
-  height?: number;
-  width?: number;
 }
 
 export enum Position {

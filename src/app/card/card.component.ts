@@ -1,13 +1,14 @@
 import {Component, Input} from '@angular/core';
 import {Card, Position} from "../../model/Card";
-import {NgIf, NgTemplateOutlet} from "@angular/common";
+import {NgClass, NgIf, NgTemplateOutlet} from "@angular/common";
 
 @Component({
   selector: 'app-card',
   standalone: true,
   imports: [
     NgIf,
-    NgTemplateOutlet
+    NgTemplateOutlet,
+    NgClass
   ],
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss'

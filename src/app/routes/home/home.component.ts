@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
-import {FooterComponent} from "../footer/footer.component";
-import {CardComponent} from "../card/card.component";
-import {Card, Position} from "../../model/Card";
+import {FooterComponent} from "../../footer/footer.component";
+import {CardComponent} from "../../card/card.component";
+import {Card, Position} from "../../../model/Card";
 import {NgForOf} from "@angular/common";
 
 @Component({
@@ -21,6 +21,8 @@ export class HomeComponent {
       img: 'assets/card-images/bsc.png',
       imgPosition: Position.TOP,
       title: 'Bachelor Thesis',
+      topic: 'University',
+      date: '7 Dec. 2023',
       description: 'As my Bachelor Project I have created a Moodle manager, which downloads Homeworks from Moodle and distributes them via Discord.',
       link: '/bachelor-thesis'
     }
