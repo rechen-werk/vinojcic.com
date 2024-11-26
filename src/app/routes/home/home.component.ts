@@ -18,6 +18,14 @@ import {NgForOf} from "@angular/common";
 export class HomeComponent {
   thesisCards: Card[] = [
     {
+      img: 'assets/card-images/msc.png',
+      imgPosition: Position.TOP,
+      title: 'Master Thesis',
+      topic: 'University',
+      description: 'Currently I am working on my Master Thesis, in which I create an application for students. This application allows students to plan their schedule for university.',
+      //link: '/master-thesis'
+    },
+    {
       img: 'assets/card-images/bsc.png',
       imgPosition: Position.TOP,
       title: 'Bachelor Thesis',
@@ -29,16 +37,28 @@ export class HomeComponent {
   ]
   paperCards: Card[] = [
     {
-      img: 'bar',
-      imgPosition: Position.BOTTOM,
-      title: 'Paper1',
-      description: 'Paper 1 desc.'
+      img: 'assets/card-images/memory.png',
+      imgPosition: Position.TOP,
+      title: 'Seminar Paper',
+      topic: 'University',
+      date: '3. July 2024',
+      description: 'In this paper Alexander Voglsperger and I described some ideas on Data Structure Analysis and Memory Bloat in Unmanaged Languages.',
     },
     {
-      img: 'bar',
+      img: 'assets/card-images/async.png',
       imgPosition: Position.TOP,
-      title: 'Paper2',
-      description: 'Paper 2 desc.'
+      title: 'Seminar Paper',
+      topic: 'University',
+      date: '24 Feb. 2023',
+      description: 'In this paper we describe an application with a few imaginary Banks and Stores, so that we can try out and compare a few solutions by working with the async/await feature in C#.'
+    },
+    {
+      img: 'assets/card-images/pat.png',
+      imgPosition: Position.TOP,
+      title: 'Course Paper',
+      topic: 'University',
+      date: '1 Jun. 2022',
+      description: 'In this paper Alexander Voglsperger and I compared a few Live Sharing tools. This work is a paper to train the process of writing, in order to write good bachelor- and master thesis later.'
     }
   ]
 }
