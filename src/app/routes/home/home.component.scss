@@ -13,6 +13,9 @@
       }
 
       &#about {
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
         padding: 0 5%;
         @media (min-width: $m-screen) {
           padding: 0 15%;
@@ -21,6 +24,9 @@
         * {
           text-align: center;
           line-height: 1.2;
+        }
+        button.cv{
+          margin-top: 12px;
         }
       }
       &#education {

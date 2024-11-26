@@ -82,4 +82,8 @@ export class HomeComponent {
       return y - year;
     }
   }
+
+  downloadCV() {
+
+  }
 }
