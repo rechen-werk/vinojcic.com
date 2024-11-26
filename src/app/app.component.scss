@@ -3,5 +3,11 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow: clip;
+
+  .container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    overflow: auto;
+  }
 }
