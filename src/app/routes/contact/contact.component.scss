@@ -1,0 +1,72 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  a {
+    text-decoration: none;
+  }
+
+  div.container {
+    max-width: 70%;
+    width: 700px;
+
+    form {
+
+      border-radius: 8px; /* Slightly rounded corners */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+      label {
+        display: block; /* Make labels block-level for stacking */
+        margin-bottom: 5px; /* Space between label and input */
+        font-size: 1rem; /* Set a consistent font size */
+      }
+
+      input, textarea {
+        width: 100%; /* Make the input elements take up full width */
+        padding: 10px; /* Add some padding inside inputs */
+        margin-bottom: 15px; /* Add space between form elements */
+        border: 1px solid #ccc; /* Light border for the input fields */
+        border-radius: 4px; /* Rounded corners for inputs */
+        font-size: 1rem; /* Consistent font size */
+        box-sizing: border-box; /* Ensure padding and border are included in width */
+
+        textarea {
+          height: 150px; /* Set a height for the textarea */
+          resize: vertical; /* Allow vertical resizing */
+        }
+
+        /* Submit Button */
+        button {
+          padding: 10px 20px; /* Padding inside the button */
+          border: none; /* Remove default border */
+          border-radius: 4px; /* Rounded corners */
+          cursor: pointer; /* Change cursor on hover */
+          font-size: 1rem; /* Font size for the button text */
+          display: inline-block; /* Keep button inline with the form */
+        }
+
+        button:hover {
+          opacity: 0.8; /* Slight transparency effect when hovering */
+        }
+      }
+    }
+
+    /* Optional: Success/Error Messages */
+    .success-message, .error-message {
+      display: none; /* Hide messages by default */
+      margin-top: 15px; /* Space between form and message */
+      padding: 10px; /* Padding inside message box */
+      border-radius: 4px; /* Rounded corners for message boxes */
+      font-size: 1rem; /* Consistent font size */
+    }
+
+    .success-message {
+      border: 1px solid #4CAF50; /* Green border for success message */
+    }
+
+    .error-message {
+      border: 1px solid #f44336; /* Red border for error message */
+    }
+  }
+}

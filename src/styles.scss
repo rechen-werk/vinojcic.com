@@ -44,9 +44,15 @@ $xl-screen: 1200px;
   .secondary {
     color: theme($secondary-color, $theme);
   }
+  .link {
+    color: theme($link-color, $theme);
+  }
 
   h1, h2, h3, h4, h5, h6 {
     text-transform: uppercase;
+  }
+  a {
+    color: theme($link-color, $theme);
   }
 
   p, a {

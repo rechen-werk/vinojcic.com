@@ -4,7 +4,7 @@ $primary-color: primary-color;
 $secondary-color: secondary-color;
 $bg-color: bg-color;
 $bg-box-color: bg-box-color;
-$primary-box-color: primary-box-color;
+$link-color: link-color;
 $secondary-box-color: secondary-box-color;
 $sidebar-background-color: sidebar-background-color;
 $navbar-background-color: navbar-background-clolor;
@@ -19,10 +19,10 @@ $theme:(
   $secondary-color: #a4a4a4,
   $bg-color: #0a0a0a,
   $bg-box-color: #577586,
-  $primary-box-color: #780000,
+  $link-color: #ffa1a1,
   $sidebar-background-color: #1f261f,
-  $navbar-background-color: #3ca64d,
-  $navbar-border-color: #146b24,
+  $navbar-background-color: #00310e,
+  $navbar-border-color: #0f3100,
   $footer-text-color: #edf2f4,
   $footer-background-color: #161616,
 );
