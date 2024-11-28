@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {CardComponent} from "../../card/card.component";
 import {Card, Position} from "../../../model/Card";
 import {NgForOf} from "@angular/common";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-home',
@@ -84,6 +85,10 @@ export class HomeComponent {
   }
 
   downloadCV() {
+    const link = document.createElement('a');
+    link.href = 'assets/documents/CV.pdf';
+    link.download = 'cv.pdf';
 
+    link.click();
   }
 }
