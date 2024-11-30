@@ -37,6 +37,12 @@ $xl-screen: 1200px;
   .secondary {
     color: theme($secondary-color, $theme);
   }
+  .normal {
+    font-weight: normal;
+  }
+  .italic {
+    font-style: italic;
+  }
   .link {
     color: theme($link-color, $theme);
   }
@@ -61,10 +67,12 @@ $xl-screen: 1200px;
 
   a {
     color: theme($link-color, $theme);
+    text-decoration: none;
   }
 
   p, a {
     font-size: 16px;
+    margin-bottom: 6px;
   }
   @media (min-width: $s-screen) {
     p, a {
@@ -91,6 +99,17 @@ $xl-screen: 1200px;
     * {
       text-decoration: line-through;
     }
+  }
+  .huh {
+    cursor: help;
+  }
+  h1 {
+    text-transform: uppercase;
+    font-size: 48px;
+  }
+  h2 {
+    text-align: center;
+    font-size: 38px;
   }
 }
 
