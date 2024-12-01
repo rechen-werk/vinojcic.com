@@ -132,7 +132,11 @@
       </div>
     </div>
     <h3>Thesis and Papers</h3>
-    <div class="cards" #cards>
+    <div class="cards"
+         #cards
+         (touchstart)="onTouchStart($event)"
+         (touchend)="onTouchEnd($event)"
+    >
       <app-card class="paper" *ngFor="let card of shownCards" [card]="card"/>
     </div>
     <div class="dots">

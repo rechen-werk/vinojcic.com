@@ -127,13 +127,34 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     const cardsWidth = this.cardsElement.nativeElement.getBoundingClientRect().width;
     const cardWidth = 300;
     const gapWidth = 24;
-    const nCards = Math.floor(cardsWidth / (cardWidth + gapWidth));
+    const nCards = Math.max(Math.floor(cardsWidth / (cardWidth + gapWidth)), 1);
     this.shownCards = this.paperCards.slice(this.cardIndex, this.cardIndex + nCards);
     this.dots = Array.from(Array(this.paperCards.length - this.shownCards.length + 1).keys());
     this.ref.detectChanges();
   }
 
+  private touchStartX = 0;
+  private touchEndX = 0;
+
+  onTouchStart(event: TouchEvent): void {
+    this.touchStartX = event.changedTouches[0].clientX;
+  }
+
+  onTouchEnd(event: TouchEvent): void {
+    this.touchEndX = event.changedTouches[0].clientX;
+    this.handleSwipe();
+  }
+
+  handleSwipe(): void {
+    const swipeThreshold = 50;
+    if (this.touchEndX - this.touchStartX > swipeThreshold) {
+      this.showCards((this.cardIndex + 1) % this.dots.length)
+    } else if (this.touchStartX - this.touchEndX > swipeThreshold) {
+      this.showCards((this.cardIndex - 1 + this.dots.length) % this.dots.length)
+    }
+  }
+
   ngOnDestroy() {
-    this.resizeSubscription?.unsubscribe(); // Cleanup
+    this.resizeSubscription?.unsubscribe();
   }
 }
