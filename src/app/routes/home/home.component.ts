@@ -135,19 +135,25 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
 
   private touchStartX = 0;
   private touchEndX = 0;
+  private touchStartY = 0;
+  private touchEndY = 0;
 
   onTouchStart(event: TouchEvent): void {
     this.touchStartX = event.changedTouches[0].clientX;
+    this.touchStartY = event.changedTouches[0].clientY;
   }
 
   onTouchEnd(event: TouchEvent): void {
     this.touchEndX = event.changedTouches[0].clientX;
+    this.touchEndY = event.changedTouches[0].clientY;
     this.handleSwipe();
   }
 
   handleSwipe(): void {
     const swipeThreshold = 50;
-    if (this.touchEndX - this.touchStartX > swipeThreshold) {
+    const horizontal = Math.abs(this.touchEndX - this.touchStartX);
+    const vertical = Math.abs(this.touchEndY - this.touchStartY);
+    if (this.touchEndX - this.touchStartX > swipeThreshold && horizontal > 1.25 * vertical) {
       this.showCards((this.cardIndex - 1 + this.dots.length) % this.dots.length);
     } else if (this.touchStartX - this.touchEndX > swipeThreshold) {
       this.showCards((this.cardIndex + 1) % this.dots.length);
