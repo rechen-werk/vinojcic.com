@@ -1,20 +1,24 @@
-import {Component} from '@angular/core';
+import {AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnDestroy, ViewChild} from '@angular/core';
 import {CardComponent} from "../../card/card.component";
 import {Card, Position} from "../../../model/Card";
-import {NgForOf} from "@angular/common";
-import {HttpClient} from "@angular/common/http";
+import {NgClass, NgForOf} from "@angular/common";
+import {debounceTime, fromEvent, Subscription} from "rxjs";
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
     CardComponent,
-    NgForOf
+    NgForOf,
+    NgClass
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
+export class HomeComponent implements AfterViewInit, OnDestroy {
+  @ViewChild('cards') cardsElement!: ElementRef;
+  private resizeSubscription: Subscription | undefined;
+
   paperCards: Card[] = [
     {
       img: 'assets/card-images/msc.png',
@@ -67,6 +71,13 @@ export class HomeComponent {
     }
   ]
 
+  shownCards!: Card[];
+  dots!: number[];
+
+  constructor(private ref: ChangeDetectorRef) {
+  }
+
+
   age(day: number, month: number, year: number): number {
     const today = new Date();
     const y = today.getFullYear();
@@ -90,5 +101,39 @@ export class HomeComponent {
     link.download = 'cv.pdf';
 
     link.click();
+  }
+
+  private cardIndex = 0;
+
+  showCards(index: number) {
+    const dots = document.querySelectorAll('.dot');
+    dots[this.cardIndex].classList.remove('active');
+    this.cardIndex = index;
+    dots[this.cardIndex].classList.add('active');
+    this.refreshCards();
+
+  }
+
+  ngAfterViewInit(): void {
+    this.refreshCards();
+    this.resizeSubscription = fromEvent(window, 'resize')
+      .pipe(debounceTime(0))
+      .subscribe(() => {
+        this.refreshCards()
+      });
+  }
+
+  private refreshCards() {
+    const cardsWidth = this.cardsElement.nativeElement.getBoundingClientRect().width;
+    const cardWidth = 300;
+    const gapWidth = 24;
+    const nCards = Math.floor(cardsWidth / (cardWidth + gapWidth));
+    this.shownCards = this.paperCards.slice(this.cardIndex, this.cardIndex + nCards);
+    this.dots = Array.from(Array(this.paperCards.length - this.shownCards.length + 1).keys());
+    this.ref.detectChanges();
+  }
+
+  ngOnDestroy() {
+    this.resizeSubscription?.unsubscribe(); // Cleanup
   }
 }

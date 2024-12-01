@@ -24,7 +24,7 @@
     <h2>Work</h2>
     <div class="timeline">
       <div class="entry">
-        <h3 class="name">Dynatrace <span class="secondary normal">(Internship)</span></h3>
+        <h4 class="name">Dynatrace <span class="secondary normal">(Internship)</span></h4>
         <div class="time secondary">July, August 2023</div>
         <p class="description">
           My second, and I assume last, internship was at <a href="https://www.dynatrace.com/"
@@ -41,7 +41,7 @@
         </p>
       </div>
       <div class="entry">
-        <h3 class="name">RZL <span class="secondary normal">(Internship)</span></h3>
+        <h4 class="name">RZL <span class="secondary normal">(Internship)</span></h4>
         <div class="time secondary">July 2022</div>
         <p class="description">
           My first internship was at <a href="https://rzlsoftware.at/" target="_blank">RZL</a>.
@@ -55,7 +55,7 @@
         </p>
       </div>
       <div class="entry">
-        <h3 class="name">Institute for System Software <span class="secondary normal">(Part time job)</span></h3>
+        <h4 class="name">Institute for System Software <span class="secondary normal">(Part time job)</span></h4>
         <div class="time secondary">October 2021 - February 2025</div>
         <p class="description">
           As a student I quickly decided to take a tutoring job.
@@ -72,7 +72,7 @@
         </p>
       </div>
       <div class="entry">
-        <h3 class="name">Naschmax <span class="secondary normal">(Part time job)</span></h3>
+        <h4 class="name">Naschmax <span class="secondary normal">(Part time job)</span></h4>
         <div class="time secondary">September 2017 - October 2019</div>
         <p class="description">
           At <a href="https://www.naschmax.at/" target="_blank">Naschmax</a> I got into first contact with working at
@@ -99,7 +99,7 @@
     <div class="schools">
       <div class="timeline">
         <div class="entry">
-          <h3 class="name">JKU Linz <span class="secondary normal">(Computer Science Master)</span></h3>
+          <h4 class="name">JKU Linz <span class="secondary normal">(Computer Science Master)</span></h4>
           <div class="time secondary">December 2023 - <span class="secondary italic huh"
                                                             title="My plan is to submit my thesis by the end of February and after having to wait for a month, my exam will presumably take place in the beginning of April.">est.</span>
             April 2024
@@ -110,7 +110,7 @@
           </p>
         </div>
         <div class="entry">
-          <h3 class="name">JKU Linz <span class="secondary normal">(Informatics Bachelor)</span></h3>
+          <h4 class="name">JKU Linz <span class="secondary normal">(Informatics Bachelor)</span></h4>
           <div class="time secondary">March 2020 - December 2023</div>
           <p class="description">
             Right after school I started studying Mathematics at JKU, but quickly I realized that this topic is too dry.
@@ -119,7 +119,7 @@
           </p>
         </div>
         <div class="entry">
-          <h3 class="name">BORG Ried im Innkreis <span class="secondary normal">(Matura)</span></h3>
+          <h4 class="name">BORG Ried im Innkreis <span class="secondary normal">(Matura)</span></h4>
           <div class="time secondary">September 2015 - June 2019</div>
           <p class="description">
             In Austria one has to attain Matura before being admitted to University.
@@ -132,8 +132,18 @@
       </div>
     </div>
     <h3>Thesis and Papers</h3>
-    <div class="cards">
-      <app-card *ngFor="let card of paperCards" [card]="card"/>
+    <div class="cards" #cards>
+      <app-card class="paper" *ngFor="let card of shownCards" [card]="card"/>
+    </div>
+    <div class="dots">
+      <button
+        *ngFor="let dot of dots"
+        class="dot"
+        [ngClass]="{'active': dot === 0}"
+        (click)="showCards(dot)"
+      >
+        <div></div>
+      </button>
     </div>
   </section>
   <section id="skills">
