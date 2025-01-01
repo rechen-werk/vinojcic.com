@@ -35,6 +35,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       topic: 'University',
       date: '3. July 2024',
       description: 'In the course of our master studies Alexander Voglsperger and I described some ideas on Data Structure Analysis and Memory Bloat in Unmanaged Languages.',
+      link: '/assets/documents/seminar_paper_2.pdf'
     },
     {
       img: 'assets/card-images/bsc.png',
@@ -43,7 +44,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       topic: 'University',
       date: '7 Dec. 2023',
       description: 'As my Bachelor Project I have created a Moodle manager, which downloads Homeworks from Moodle and distributes them via Discord.',
-      link: '/bachelor-thesis'
+      link: '/assets/documents/bachelor_thesis.pdf'
     },
     {
       img: 'assets/card-images/async.png',
@@ -51,7 +52,8 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       title: 'Seminar Paper',
       topic: 'University',
       date: '24 Feb. 2023',
-      description: 'In this paper we describe an application with a few imaginary Banks and Stores, so that we can try out and compare a few solutions by working with the async/await feature in C#.'
+      description: 'In this paper we describe an application with a few imaginary Banks and Stores, so that we can try out and compare a few solutions by working with the async/await feature in C#.',
+      link: '/assets/documents/seminar_paper_1.pdf'
     },
     {
       img: 'assets/card-images/pat.png',
@@ -59,7 +61,8 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       title: 'Course Paper',
       topic: 'University',
       date: '1 Jun. 2022',
-      description: 'In this paper Alexander Voglsperger and I compared a few Live Sharing tools. This work is a paper to train the process of writing, in order to write good bachelor- and master thesis later on in our university careers.'
+      description: 'In this paper Alexander Voglsperger and I compared a few Live Sharing tools. This work is a paper to train the process of writing, in order to write good bachelor- and master thesis later on in our university careers.',
+      link: '/assets/documents/pat_paper.pdf'
     },
     {
       img: 'assets/card-images/vwa.png',
