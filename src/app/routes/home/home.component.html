@@ -24,14 +24,15 @@
     <h2>Work</h2>
     <div class="timeline">
       <div class="entry">
-        <h4 class="name">Fabasoft <span class="secondary normal">(Full-time job)</span></h4>
+        <h4 class="name">Fabasoft <span class="secondary normal">(Software Developer)</span></h4>
         <div class="time secondary">from February 2025</div>
         <p class="description">
-          Let's see, what my new job will bring in the future.
+          In February I am starting my first real job in the role as Software Developer working full-time.
+          I am assigned to the team Relations and our goal is to publish a new product soon.
         </p>
       </div>
       <div class="entry">
-        <h4 class="name">Dynatrace <span class="secondary normal">(Internship)</span></h4>
+        <h4 class="name">Dynatrace <span class="secondary normal">(Intern)</span></h4>
         <div class="time secondary">July, August 2023</div>
         <p class="description">
           My second, and I assume last, internship was at <a href="https://www.dynatrace.com/"
@@ -48,7 +49,7 @@
         </p>
       </div>
       <div class="entry">
-        <h4 class="name">RZL <span class="secondary normal">(Internship)</span></h4>
+        <h4 class="name">RZL <span class="secondary normal">(Intern)</span></h4>
         <div class="time secondary">July 2022</div>
         <p class="description">
           My first internship was at <a href="https://rzlsoftware.at/" target="_blank">RZL</a>.
@@ -62,7 +63,7 @@
         </p>
       </div>
       <div class="entry">
-        <h4 class="name">Institute for System Software <span class="secondary normal">(Part-time job)</span></h4>
+        <h4 class="name">Institute for System Software <span class="secondary normal">(Tutor)</span></h4>
         <div class="time secondary">October 2021 - January 2025</div>
         <p class="description">
           As a student I quickly decided to take a tutoring job.
@@ -79,8 +80,17 @@
         </p>
       </div>
       <div class="entry">
-        <h4 class="name">Naschmax <span class="secondary normal">(Part-time job)</span></h4>
-        <div class="time secondary">September 2017 - October 2019</div>
+        <h4 class="name">Municipality Neuhofen im Innkreis <span class="secondary normal">(Summer Job)</span></h4>
+        <div class="time secondary">July 2020</div>
+        <p class="description">
+          My first summer job was to help the janitor of my elementary school perform the big cleaning in the summer break.
+          This included cleaning tables of students, cleaning windows, removing spider webs and so on.
+          Not really a fun job, but worth the experience in any case.
+        </p>
+      </div>
+      <div class="entry">
+        <h4 class="name">Naschmax <span class="secondary normal">(Salesperson)</span></h4>
+        <div class="time secondary">September 2017 - October 2019, September 2020, September 2021</div>
         <p class="description">
           At <a href="https://www.naschmax.at/" target="_blank">Naschmax</a> I got into first contact with working at
           age 17.
@@ -108,8 +118,7 @@
         <div class="entry">
           <h4 class="name">JKU Linz <span class="secondary normal">(Computer Science Master)</span></h4>
           <div class="time secondary">December 2023 - <span class="secondary italic huh"
-                                                            title="My plan is to submit my thesis by the end of February and after having to wait for a month, my exam will presumably take place in the beginning of April.">est.</span>
-            April 2025
+                                                            title="I have my masters examination on April 2nd 2025.">April 2025</span>
           </div>
           <p class="description">
             For my masters degree I specialized in Software Engineering.
@@ -139,23 +148,7 @@
       </div>
     </div>
     <h3>Thesis and Papers</h3>
-    <div class="cards"
-         #cards
-         (touchstart)="onTouchStart($event)"
-         (touchend)="onTouchEnd($event)"
-    >
-      <app-card class="paper" *ngFor="let card of shownCards" [card]="card"/>
-    </div>
-    <div class="dots">
-      <button
-        *ngFor="let dot of dots"
-        class="dot"
-        [ngClass]="{'active': dot === 0}"
-        (click)="showCards(dot)"
-      >
-        <div></div>
-      </button>
-    </div>
+    <cards [cards]="paperCards"/>
   </section>
   <!--section id="skills">
     <h2>Skills</h2>

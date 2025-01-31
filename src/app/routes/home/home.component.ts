@@ -1,24 +1,17 @@
-import {AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnDestroy, ViewChild} from '@angular/core';
-import {CardComponent} from "../../card/card.component";
+import { Component } from '@angular/core';
 import {Card, Position} from "../../../model/Card";
-import {NgClass, NgForOf} from "@angular/common";
-import {debounceTime, fromEvent, Subscription} from "rxjs";
+import {CardsComponent} from "../../cards/cards.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
-    CardComponent,
-    NgForOf,
-    NgClass
+    CardsComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent implements AfterViewInit, OnDestroy {
-  @ViewChild('cards') cardsElement!: ElementRef;
-  private resizeSubscription: Subscription | undefined;
-
+export class HomeComponent {
   paperCards: Card[] = [
     {
       img: 'assets/card-images/msc.png',
@@ -74,13 +67,6 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     }
   ]
 
-  shownCards!: Card[];
-  dots!: number[];
-
-  constructor(private ref: ChangeDetectorRef) {
-  }
-
-
   age(day: number, month: number, year: number): number {
     const today = new Date();
     const y = today.getFullYear();
@@ -104,66 +90,5 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     link.download = 'cv.pdf';
 
     link.click();
-  }
-
-  private cardIndex = 0;
-
-  showCards(index: number) {
-    const dots = document.querySelectorAll('.dot');
-    dots[this.cardIndex].classList.remove('active');
-    this.cardIndex = index;
-    dots[this.cardIndex].classList.add('active');
-    this.refreshCards();
-
-  }
-
-  ngAfterViewInit(): void {
-    this.refreshCards();
-    this.resizeSubscription = fromEvent(window, 'resize')
-      .pipe(debounceTime(0))
-      .subscribe(() => {
-        this.refreshCards()
-      });
-  }
-
-  private refreshCards() {
-    const cardsWidth = this.cardsElement.nativeElement.getBoundingClientRect().width;
-    const cardWidth = 300;
-    const gapWidth = 24;
-    const nCards = Math.max(Math.floor(cardsWidth / (cardWidth + gapWidth)), 1);
-    this.shownCards = this.paperCards.slice(this.cardIndex, this.cardIndex + nCards);
-    this.dots = Array.from(Array(this.paperCards.length - this.shownCards.length + 1).keys());
-    this.ref.detectChanges();
-  }
-
-  private touchStartX = 0;
-  private touchEndX = 0;
-  private touchStartY = 0;
-  private touchEndY = 0;
-
-  onTouchStart(event: TouchEvent): void {
-    this.touchStartX = event.changedTouches[0].clientX;
-    this.touchStartY = event.changedTouches[0].clientY;
-  }
-
-  onTouchEnd(event: TouchEvent): void {
-    this.touchEndX = event.changedTouches[0].clientX;
-    this.touchEndY = event.changedTouches[0].clientY;
-    this.handleSwipe();
-  }
-
-  handleSwipe(): void {
-    const swipeThreshold = 50;
-    const horizontal = Math.abs(this.touchEndX - this.touchStartX);
-    const vertical = Math.abs(this.touchEndY - this.touchStartY);
-    if (this.touchEndX - this.touchStartX > swipeThreshold && horizontal > 1.25 * vertical) {
-      this.showCards((this.cardIndex - 1 + this.dots.length) % this.dots.length);
-    } else if (this.touchStartX - this.touchEndX > swipeThreshold) {
-      this.showCards((this.cardIndex + 1) % this.dots.length);
-    }
-  }
-
-  ngOnDestroy() {
-    this.resizeSubscription?.unsubscribe();
   }
 }

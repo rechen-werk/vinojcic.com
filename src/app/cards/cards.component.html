@@ -1,0 +1,17 @@
+<div class="top" [style.gap.px]="cardGap">
+  <card class="paper" *ngFor="let card of visible" [card]="card"/>
+</div>
+<div class="bottom">
+  <button (click)="previousCard()" class="left"><i class="fa fa-chevron-left"></i></button>
+  <div class="dots">
+    <button
+      *ngFor="let dot of dots"
+      class="dot"
+      [ngClass]="{'active': dot === 0}"
+      (click)="showCards(dot)"
+    >
+      <div></div>
+    </button>
+  </div>
+  <button (click)="nextCard()" class="right"><i class="fa fa-chevron-right"></i></button>
+</div>
