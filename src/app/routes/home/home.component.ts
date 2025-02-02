@@ -63,7 +63,8 @@ export class HomeComponent {
       title: 'Pre-scientific work',
       topic: 'School',
       date: '28 Feb. 2019',
-      description: 'In order to get admitted to university in austria up until 2024 it was required to write some kind of pre-scientific work. My work written in german and talks about the number pi.'
+      description: 'In order to get admitted to university in austria up until 2024 it was required to write some kind of pre-scientific work. My work written in german and talks about the number pi.',
+      link: '/assets/documents/vwa.pdf'
     }
   ]
 
