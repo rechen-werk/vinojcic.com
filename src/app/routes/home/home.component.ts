@@ -19,7 +19,7 @@ export class HomeComponent {
       title: 'Master Thesis',
       topic: 'University',
       description: 'Currently I am working on my Master Thesis, in which I create an application for students. This application allows students to plan their schedule for university.',
-      //link: '/master-thesis'
+      link: '/assets/documents/master_thesis.pdf'
     },
     {
       img: 'assets/card-images/memory.png',
