@@ -18,6 +18,7 @@ export class HomeComponent {
       imgPosition: Position.TOP,
       title: 'Master Thesis',
       topic: 'University',
+      date: '23. February 2025',
       description: 'Currently I am working on my Master Thesis, in which I create an application for students. This application allows students to plan their schedule for university.',
       link: '/assets/documents/master_thesis.pdf'
     },
