@@ -19,7 +19,7 @@ export class HomeComponent {
       title: 'Master Thesis',
       topic: 'University',
       date: '23. February 2025',
-      description: 'Currently I am working on my Master Thesis, in which I create an application for students. This application allows students to plan their schedule for university.',
+      description: 'My Master Thesis covers a project in which I create an application for students. This application allows them to plan their schedule for the upcoming semester at JKU.',
       link: '/assets/documents/master_thesis.pdf'
     },
     {
