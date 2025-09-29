@@ -1,6 +1,13 @@
 <div class="container navbar">
-  <a class="logo-a navbar" href="/"><img class="logo" src="assets/favicon/apple-icon-180x180.png" alt="AV logo"/>
-    <div>Home</div>
-  </a>
-  <a class="navbar" href="/contact">Contact</a>
+  <button (click)="clickOnLogo()">
+    <img class="logo" src="assets/favicon/apple-icon-180x180.png" alt="AV logo"/>
+  </button>
+  <div class="links">
+    <div class="left">
+      <a class="navbar" [routerLink]="['/']">Home</a>
+    </div>
+    <div class="right">
+      <a class="navbar" [routerLink]="['/contact']">Contact</a>
+    </div>
+  </div>
 </div>

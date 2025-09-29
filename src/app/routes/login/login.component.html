@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>Dashboard Login</h1>
+  <form (ngSubmit)="login($event)" #loginForm="ngForm">
+    <label for="name">Alias: </label>
+    <input type="text" id="name" name="name" placeholder="Name" ngModel required>
+    <label for="password">Secret: </label>
+    <input type="password" id="password" name="password" placeholder="Password" ngModel required>
+    <input type="submit" class="submit" *ngIf="!inProgress" value="Send it">
+    <div class="spinner-container" *ngIf="inProgress">
+      <div class="spinner"></div>
+    </div>
+  </form>
+</div>
