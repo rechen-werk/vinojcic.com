@@ -26,15 +26,15 @@ export class LoginComponent {
 
   login(event: SubmitEvent) {
     event.preventDefault();
-    this.inProgress = true;
-
-    this.http.post(`${environment.API_BASE_URL}/login`, this.loginForm.value).subscribe(
+    this.router.navigateByUrl("/dashboard");
+    //this.inProgress = true;
+    /*this.http.post(`${environment.API_BASE_URL}/login`, this.loginForm.value).subscribe(
       () => {
         this.router.navigateByUrl("/dashboard");
       },
       () => {
         this.inProgress = false;
       }
-    );
+    );*/
   }
 }

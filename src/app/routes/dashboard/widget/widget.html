@@ -1,0 +1,11 @@
+<div class="panel" (click)="open($event)">
+  <div class="name-bar">
+    <h3 class="icon"><i class="fa fa-{{widget.icon}}"></i></h3>
+    <h3 class="name"> {{widget.name}}</h3>
+  </div>
+  <div class="preview">
+    <div class="iframe-wrap">
+      <iframe [src]="sanitizer.bypassSecurityTrustResourceUrl(widget.path)" scrolling="no"></iframe>
+    </div>
+  </div>
+</div>

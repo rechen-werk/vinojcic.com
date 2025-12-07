@@ -1,5 +1,9 @@
 <div class="container">
-  <h2>Could not find the page you are looking for.</h2>
-  <img src="https://http.cat/404" alt="404 not found">
+  @if (window.self === window.top) {
+    <h2>Could not find the page you are looking for.</h2>
+    <img src="https://http.cat/404" alt="404 not found">
+  } @else {
+     <h3>Could not find the page you are looking for.</h3>
+  }
 </div>
 

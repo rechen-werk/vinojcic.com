@@ -9,6 +9,11 @@ export const routes: Routes = [
   {path: 'contact', component: ContactComponent},
   {path: 'login', component: LoginComponent},
   {path: 'dashboard', component: DashboardComponent},
+
+  // Apps
+  // todo
+
+  // Fallback
   {path: '', component: HomeComponent},
   {path: '**', component: NotFoundComponent},
 ];

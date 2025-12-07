@@ -12,4 +12,6 @@ import {FooterComponent} from "./footer/footer.component";
 })
 export class AppComponent {
   title = 'vinojcic-com';
+
+  protected readonly window = window;
 }
