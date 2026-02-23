@@ -24,17 +24,23 @@ export class LoginComponent {
     private router: Router) {
   }
 
+  goToRegister() {
+    this.router.navigateByUrl("/register");
+  }
+
   login(event: SubmitEvent) {
     event.preventDefault();
-    this.router.navigateByUrl("/dashboard");
-    //this.inProgress = true;
-    /*this.http.post(`${environment.API_BASE_URL}/login`, this.loginForm.value).subscribe(
+    this.inProgress = true;
+    this.http.post(`${environment.API_BASE_URL}/auth/login`, {
+      username: this.loginForm.value.username,
+      password: this.loginForm.value.password
+    }, { responseType: 'text', withCredentials: true }).subscribe(
       () => {
         this.router.navigateByUrl("/dashboard");
       },
-      () => {
+      (err) => {
         this.inProgress = false;
       }
-    );*/
+    );
   }
 }

@@ -1,11 +1,14 @@
 <div class="container">
-  <h1>Dashboard Login</h1>
-  <button class="register" (click)="goToRegister()">Register</button>
-  <form (ngSubmit)="login($event)" #loginForm="ngForm">
+  <h1>Register</h1>
+  <form (ngSubmit)="register($event)" #registerForm="ngForm">
     <label for="username">Alias: </label>
     <input type="text" id="username" name="username" placeholder="Name" ngModel required>
+    <label for="email">E-Mail: </label>
+    <input type="email" id="email" name="email" placeholder="example@mail.com" ngModel required>
     <label for="password">Secret: </label>
     <input type="password" id="password" name="password" placeholder="Password" ngModel required>
+    <label for="confirmPassword">Repeat Secret: </label>
+    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Password" ngModel required>
     <input type="submit" class="submit" *ngIf="!inProgress" value="Send it">
     <div class="spinner-container" *ngIf="inProgress">
       <div class="spinner"></div>

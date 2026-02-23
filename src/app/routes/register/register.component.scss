@@ -1,0 +1,120 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  a {
+    text-decoration: none;
+  }
+
+  div.container {
+    max-width: 70%;
+    width: 700px;
+
+    form {
+      border-radius: 8px;
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 1rem;
+      }
+
+      input, textarea, .spinner-container {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 1rem;
+        box-sizing: border-box;
+      }
+
+      textarea {
+        height: 150px;
+        resize: vertical;
+      }
+
+      input.submit {
+        cursor: pointer;
+        margin-bottom: 0;
+
+        &:hover {
+          opacity: 0.9;
+        }
+      }
+
+      .spinner-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        padding: 4px;
+
+        .spinner {
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          border: 3px solid black;
+          background-color: transparent;
+          animation: spinner-1 1s infinite linear alternate,
+          spinner-2 2s infinite linear;
+        }
+      }
+    }
+
+    .hidden {
+      display: none;
+    }
+  }
+}
+
+@keyframes spinner-1 {
+  0% {
+    clip-path: polygon(50% 50%, 0 0, 50% 0%, 50% 0%, 50% 0%, 50% 0%, 50% 0%);
+  }
+
+  12.5% {
+    clip-path: polygon(50% 50%, 0 0, 50% 0%, 100% 0%, 100% 0%, 100% 0%, 100% 0%);
+  }
+
+  25% {
+    clip-path: polygon(50% 50%, 0 0, 50% 0%, 100% 0%, 100% 100%, 100% 100%, 100% 100%);
+  }
+
+  50% {
+    clip-path: polygon(50% 50%, 0 0, 50% 0%, 100% 0%, 100% 100%, 50% 100%, 0% 100%);
+  }
+
+  62.5% {
+    clip-path: polygon(50% 50%, 100% 0, 100% 0%, 100% 0%, 100% 100%, 50% 100%, 0% 100%);
+  }
+
+  75% {
+    clip-path: polygon(50% 50%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 50% 100%, 0% 100%);
+  }
+
+  100% {
+    clip-path: polygon(50% 50%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 0% 100%);
+  }
+}
+
+@keyframes spinner-2 {
+  0% {
+    transform: scaleY(1) rotate(0deg);
+  }
+
+  49.99% {
+    transform: scaleY(1) rotate(135deg);
+  }
+
+  50% {
+    transform: scaleY(-1) rotate(0deg);
+  }
+
+  100% {
+    transform: scaleY(-1) rotate(-135deg);
+  }
+}
