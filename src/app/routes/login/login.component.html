@@ -1,6 +1,5 @@
 <div class="container">
   <h1>Dashboard Login</h1>
-  <button class="register" (click)="goToRegister()">Register</button>
   <form (ngSubmit)="login($event)" #loginForm="ngForm">
     <label for="username">Alias: </label>
     <input type="text" id="username" name="username" placeholder="Name" ngModel required>
@@ -11,4 +10,7 @@
       <div class="spinner"></div>
     </div>
   </form>
+  <div class="message-container">
+    <div class="error-message" *ngIf="errorMessage !== null" [@fadeInOut]>{{errorMessage}}</div>
+  </div>
 </div>
