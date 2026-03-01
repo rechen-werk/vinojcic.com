@@ -70,27 +70,27 @@ $xl-screen: 1200px;
     text-decoration: none;
   }
 
-  p, a {
+  p, a, tr {
     font-size: 16px;
     margin-bottom: 6px;
   }
   @media (min-width: $s-screen) {
-    p, a {
+    p, a, tr {
       font-size: 16px;
     }
   }
   @media (min-width: $m-screen) {
-    p, a {
+    p, a, tr {
       font-size: 18px;
     }
   }
   @media (min-width: $l-screen) {
-    p, a {
+    p, a, tr {
       font-size: 20px;
     }
   }
   @media (min-width: $xl-screen) {
-    p, a {
+    p, a, tr{
       font-size: 20px;
     }
   }
@@ -102,6 +102,9 @@ $xl-screen: 1200px;
   }
   .huh {
     cursor: help;
+  }
+  .highlight {
+    color: theme($highlight-color, $theme);
   }
   h1 {
     text-transform: uppercase;
@@ -124,5 +127,4 @@ html {
   width: 100vw;
   height: 100vh;
   @include apply-theme($theme);
-
 }

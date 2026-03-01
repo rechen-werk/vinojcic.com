@@ -5,9 +5,11 @@ import {ContactComponent} from "./routes/contact/contact.component";
 import {LoginComponent} from "./routes/login/login.component";
 import {DashboardComponent} from "./routes/dashboard/dashboard.component";
 import {RegisterComponent} from "./routes/register/register.component";
+import {Impressum} from "./routes/impressum/impressum";
 
 export const routes: Routes = [
   {path: 'contact', component: ContactComponent},
+  {path: 'impressum', component: Impressum},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'dashboard', component: DashboardComponent},
