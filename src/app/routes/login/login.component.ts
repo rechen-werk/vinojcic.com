@@ -1,10 +1,11 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormsModule, NgForm} from "@angular/forms";
 import {NgIf} from "@angular/common";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
 import {Router} from "@angular/router";
 import {animate, state, style, transition, trigger} from "@angular/animations";
+import {AuthService} from "../../../services/auth-service/auth.service";
 
 @Component({
   selector: 'app-login',
@@ -27,7 +28,7 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
   templateUrl: 'login.component.html',
   styleUrl: 'login.component.scss'
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   @ViewChild('loginForm') private loginForm!: NgForm;
 
   protected inProgress = false;
@@ -35,7 +36,18 @@ export class LoginComponent {
 
   constructor(
     private http: HttpClient,
+    private auth: AuthService,
     private router: Router) {
+  }
+
+  ngOnInit(): void {
+    this.auth.hi().subscribe(
+      registered => {
+        if (registered) {
+          this.router.navigateByUrl("/dashboard");
+        }
+      }
+    )
   }
 
   login(event: SubmitEvent) {

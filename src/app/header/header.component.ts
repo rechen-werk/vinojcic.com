@@ -36,10 +36,10 @@ export class HeaderComponent {
 
       this.timer2 = window.setTimeout(() => {
         this.timer2 = null;
-      }, 1000);
+      }, 2000);
 
       this.router.navigateByUrl("/login");
-    } else if (this.router.url != "/login") {
+    } else if (this.router.url != "/login" && this.router.url != "/dashboard") {
       this.router.navigateByUrl("/");
     } else if (this.timer2 == null) {
       this.router.navigateByUrl("/");

@@ -33,15 +33,14 @@ export class RegisterComponent {
         username: this.registerForm.value.username,
         password: this.registerForm.value.password
       }, { responseType: 'text', withCredentials: true }).subscribe(
-        response => {
+        () => {
           this.router.navigateByUrl("/dashboard");
         },
-        (err) => {
+        () => {
           this.inProgress = false;
         }
       );
     } else {
-      console.log("HIII")
       this.inProgress = false;
     }
   }
