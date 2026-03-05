@@ -14,4 +14,8 @@
       <div class="spinner"></div>
     </div>
   </form>
+  <div class="message-container">
+    <div class="error-message" *ngIf="errorMessage !== null" [@fadeInOut]>{{errorMessage}}</div>
+    <div class="success-message" *ngIf="successMessage !== null" [@fadeInOut]>{{successMessage}}</div>
+  </div>
 </div>

@@ -16,6 +16,7 @@ export const routes: Routes = [
   {path: 'dashboard', component: DashboardComponent, canActivate: mapToCanActivate([RegisteredGuard])},
 
   // Apps
+  {path: 'register', component: RegisterComponent, canActivate: mapToCanActivate([RoleGuard]), data: { roles: [ 'ROLE_ADMIN' ]}},
   // todo
 
   // Fallback

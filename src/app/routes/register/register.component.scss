@@ -69,6 +69,26 @@
       display: none;
     }
   }
+  .message-container {
+    margin-top: 12px;
+    height: 200px;
+    .success-message, .error-message {
+      margin-top: 15px;
+      padding: 10px;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    .success-message {
+      border: 1px solid #4CAF50;
+      background-color: transparentize(#7bd37e, 0.75);
+    }
+
+    .error-message {
+      border: 1px solid #f44336;
+      background-color: transparentize(#f86059, 0.75);
+    }
+  }
 }
 
 @keyframes spinner-1 {
