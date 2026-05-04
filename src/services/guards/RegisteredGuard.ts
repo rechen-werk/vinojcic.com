@@ -22,3 +22,23 @@ export class RegisteredGuard implements CanActivate {
     )
   }
 }
+
+@Injectable({ providedIn: 'root' })
+export class UnregisteredGuard implements CanActivate {
+
+  constructor(private auth: AuthService,
+              private router: Router) {}
+
+  canActivate(_route: ActivatedRouteSnapshot): Observable<boolean> {
+    return this.auth.hi().pipe(
+      map(registered => {
+        if (registered) {
+          this.router.navigateByUrl('/dashboard');
+          return false;
+        } else {
+          return true;
+        }
+      })
+    )
+  }
+}

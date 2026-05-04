@@ -39,7 +39,7 @@ export class RegisterComponent {
     event.preventDefault();
     this.inProgress = true;
     if (this.registerForm.value.password === this.registerForm.value.confirmPassword) {
-      this.http.post(`${environment.API_BASE_URL}/admin/register`, {
+      this.http.post(`${environment.API_BASE_URL}/auth/register`, {
         email: this.registerForm.value.email,
         username: this.registerForm.value.username,
         password: this.registerForm.value.password
