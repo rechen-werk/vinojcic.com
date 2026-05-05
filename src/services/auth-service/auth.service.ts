@@ -7,6 +7,13 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
+  checkInviteUUID(uuid: string) {
+    return this.http.get<boolean>(
+      `${environment.API_BASE_URL}/auth/check-invite-uuid`,
+      { withCredentials: true, params: { uuid: uuid } },
+    );
+  }
+
   me() {
     return this.http.get<string[]>(
       `${environment.API_BASE_URL}/auth/me`,
