@@ -15,15 +15,15 @@ import {Router} from "@angular/router";
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent {
-  widgets :ApplicationWidget[] = [];
+  widgets : ApplicationWidget[] = [];
   constructor(
     private http: HttpClient,
     private auth: AuthService,
     private router: Router) {
-    this.initWidgets();
+    this.getWidgets();
   }
 
-  initWidgets() {
+  getWidgets() {
     this.http.get<{name: string, path: string, icon: string}[]>(`${environment.API_BASE_URL}/app/list`, { withCredentials: true })
       .subscribe({
         next: (res) => {

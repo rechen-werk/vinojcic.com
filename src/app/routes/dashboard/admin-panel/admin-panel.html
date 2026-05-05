@@ -1,5 +1,34 @@
 <div class="panel">
+  <h2>Users</h2>
   <ul>
-    <li></li>
+  @for (user of users; track user.name) {
+    <li>{{ user.name }}</li>
+    <ul>
+    @for (role of user.roles; track role) {
+      <li>{{ role }}</li>
+    }
+    </ul>
+  }
   </ul>
+  <h2>Pending Invites</h2>
+  <ul>
+    @for (user of invitedUsers; track user.name) {
+      <li>{{ user.name }}</li>
+    }
+  </ul>
+  <h2>Invite User</h2>
+  <form (ngSubmit)="inviteUser($event)" #inviteForm="ngForm">
+    <label for="name">Full Name: </label>
+    <input type="text" id="name" name="name" placeholder="Name" ngModel required>
+    <label for="email">E-Mail: </label>
+    <input type="email" id="email" name="email" placeholder="example@mail.com" ngModel required>
+    <input type="submit" class="submit" *ngIf="!inProgress" value="Invite User">
+    <div class="spinner-container" *ngIf="inProgress">
+      <div class="spinner"></div>
+    </div>
+  </form>
+</div>
+<div class="panel">
+  <h1>Roles</h1>
+
 </div>
