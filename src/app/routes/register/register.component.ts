@@ -34,18 +34,34 @@ export class RegisterComponent {
   protected successMessage: string | null = null
   protected errorMessage: string | null = null
 
+  protected uuid: string | null = null;
+  protected name: string | null = null;
+  protected email: string | null = null;
+
   constructor(
     private http: HttpClient,
     private route: ActivatedRoute
-    ) {}
+    ) {
+    this.uuid = this.route.snapshot.paramMap.get('uuid');
+    this.getInvitation();
+  }
+
+  getInvitation() {
+    this.http.get<{ name: string, email: string }>(`${environment.API_BASE_URL}/auth/get-invitation/${this.uuid}`)
+      .subscribe({
+        next: (res) => {
+          this.name = res.name;
+          this.email = res.email;
+        }
+      });
+  }
 
   register(event: SubmitEvent) {
     event.preventDefault();
     this.inProgress = true;
     if (this.registerForm.value.password === this.registerForm.value.confirmPassword) {
-      let uuid = this.route.snapshot.queryParamMap.get('uuid');
       this.http.post(`${environment.API_BASE_URL}/auth/register`, {
-        uuid: uuid,
+        uuid: this.uuid,
         username: this.registerForm.value.username,
         password: this.registerForm.value.password
       }, { responseType: 'text', withCredentials: true }).subscribe(

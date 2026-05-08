@@ -75,6 +75,11 @@ $xl-screen: 1200px;
       background-color: #212121;
       border: 2px solid #c5c5c5;
     }
+    &:disabled {
+      background-color: #5d5d5d;
+      color: #ffffff;
+      border: 2px solid #883737;
+    }
   }
 
   a {
