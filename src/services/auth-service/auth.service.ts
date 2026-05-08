@@ -9,8 +9,8 @@ export class AuthService {
 
   checkInviteUUID(uuid: string) {
     return this.http.get<boolean>(
-      `${environment.API_BASE_URL}/auth/check-invite-uuid`,
-      { withCredentials: true, params: { uuid: uuid } },
+      `${environment.API_BASE_URL}/auth/check/${uuid}`,
+      { withCredentials: true },
     );
   }
 

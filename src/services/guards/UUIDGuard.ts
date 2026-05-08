@@ -12,8 +12,8 @@ export class UUIDGuard implements CanActivate {
   ) {}
 
   canActivate(route: ActivatedRouteSnapshot): Observable<boolean> {
-    const params = route.queryParams as { uuid: string };
-    return this.auth.checkInviteUUID(params.uuid).pipe(
+    const uuid = route.params['uuid'];
+    return this.auth.checkInviteUUID(uuid).pipe(
       map(valid => {
         if (!valid) {
           this.router.navigate(['']);

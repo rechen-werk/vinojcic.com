@@ -4,6 +4,7 @@ import {NgIf} from "@angular/common";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
 import {animate, state, style, transition, trigger} from "@angular/animations";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -33,14 +34,18 @@ export class RegisterComponent {
   protected successMessage: string | null = null
   protected errorMessage: string | null = null
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private route: ActivatedRoute
+    ) {}
 
   register(event: SubmitEvent) {
     event.preventDefault();
     this.inProgress = true;
     if (this.registerForm.value.password === this.registerForm.value.confirmPassword) {
+      let uuid = this.route.snapshot.queryParamMap.get('uuid');
       this.http.post(`${environment.API_BASE_URL}/auth/register`, {
-        email: this.registerForm.value.email,
+        uuid: uuid,
         username: this.registerForm.value.username,
         password: this.registerForm.value.password
       }, { responseType: 'text', withCredentials: true }).subscribe(

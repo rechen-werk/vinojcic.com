@@ -17,7 +17,7 @@ export const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'dashboard', component: DashboardComponent, canActivate: mapToCanActivate([RegisteredGuard])},
 
-  {path: 'register', component: RegisterComponent, canActivate: mapToCanActivate([UUIDGuard])},
+  {path: 'register/:uuid', component: RegisterComponent, canActivate: mapToCanActivate([UUIDGuard])},
 
   // Apps
   {path: 'admin-panel', component: AdminPanel, canActivate: mapToCanActivate([RoleGuard]), data: { roles: [ 'ROLE_ADMIN' ]}},

@@ -4,13 +4,13 @@
   <form (ngSubmit)="send($event)" #contactForm="ngForm">
     <label for="name">Who is asking: </label>
     <input type="text" id="name" name="name" placeholder="Name" ngModel required>
-    <label for="email">Where should I reply to: </label>
+    <label for="email">Where I may reply to: </label>
     <input type="email" id="email" name="email" placeholder="E-Mail" ngModel required>
-    <label for="subject">What is your message about:</label>
+    <label for="subject">Short summary of your message:</label>
     <input type="text" id="subject" name="subject" placeholder="Subject" ngModel>
-    <label for="message">Pour out your heart:</label>
+    <label for="message">What you want to tell me:</label>
     <textarea id="message" name="message" placeholder="Hello Adrian, ..." ngModel required></textarea>
-    <input type="submit"  class="submit" *ngIf="!inProgress" value="Send it">
+    <input type="submit"  class="submit" *ngIf="!inProgress" value="Submit">
     <div class="spinner-container" *ngIf="inProgress">
       <div class="spinner"></div>
     </div>
