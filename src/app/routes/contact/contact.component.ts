@@ -3,15 +3,11 @@ import {FormsModule, NgForm} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
 import {animate, state, style, transition, trigger} from "@angular/animations";
-import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [
-    FormsModule,
-    NgIf
-  ],
+  imports: [ FormsModule ],
   animations: [
     trigger('fadeInOut', [
       state('void', style({ opacity: 0 })),

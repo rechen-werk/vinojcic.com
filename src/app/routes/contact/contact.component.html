@@ -10,13 +10,20 @@
     <input type="text" id="subject" name="subject" placeholder="Subject" ngModel>
     <label for="message">What you want to tell me:</label>
     <textarea id="message" name="message" placeholder="Hello Adrian, ..." ngModel required></textarea>
-    <input type="submit"  class="submit" *ngIf="!inProgress" value="Submit">
-    <div class="spinner-container" *ngIf="inProgress">
-      <div class="spinner"></div>
-    </div>
+    @if (inProgress) {
+      <div class="spinner-container">
+        <div class="spinner"></div>
+      </div>
+    } @else {
+      <input type="submit"  class="submit" value="Submit">
+    }
   </form>
-  <div class="success-message" *ngIf="showSuccessMessage" [@fadeInOut]>Thank you for your message! We will get back to you shortly.</div>
-  <div class="error-message" *ngIf="showErrorMessage" [@fadeInOut]>Oops, something went wrong. Please try again later.</div>
+  @if (showSuccessMessage) {
+    <div class="success-message" [@fadeInOut]>Thank you for your message! We will get back to you shortly.</div>
+  }
+  @if (showErrorMessage) {
+    <div class="error-message" [@fadeInOut]>Oops, something went wrong. Please try again later.</div>
+  }
 
   <p>Or, send me an E-mail like in the old days to <a href="mailto:adrian.vinojcic@gmail.com">adrian.vinojcic&#64;gmail.com</a>.
   </p>

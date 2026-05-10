@@ -3,17 +3,12 @@ import {HttpClient} from "@angular/common/http";
 import {AuthService} from "../../../../services/auth-service/auth.service";
 import {Router} from "@angular/router";
 import {environment} from "../../../../environments/environment";
-import {Widget} from "../widget/widget";
 import {FormsModule, NgForm} from "@angular/forms";
-import {NgIf} from "@angular/common";
 import {animate, state, style, transition, trigger} from "@angular/animations";
 
 @Component({
   selector: 'app-admin-panel',
-  imports: [
-    FormsModule,
-    NgIf
-  ],
+  imports: [ FormsModule ],
   animations: [
     trigger('fadeInOut', [
       state('void', style({ opacity: 0 })),

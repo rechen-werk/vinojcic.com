@@ -12,12 +12,10 @@ export class RegisteredGuard implements CanActivate {
   canActivate(_route: ActivatedRouteSnapshot): Observable<boolean> {
     return this.auth.hi().pipe(
       map(registered => {
-        if (registered) {
-          return true;
-        } else {
+        if (!registered)
           this.router.navigateByUrl('/login');
-          return false;
-        }
+
+        return registered;
       })
     )
   }
@@ -32,12 +30,10 @@ export class UnregisteredGuard implements CanActivate {
   canActivate(_route: ActivatedRouteSnapshot): Observable<boolean> {
     return this.auth.hi().pipe(
       map(registered => {
-        if (registered) {
+        if (registered)
           this.router.navigateByUrl('/dashboard');
-          return false;
-        } else {
-          return true;
-        }
+
+        return !registered;
       })
     )
   }

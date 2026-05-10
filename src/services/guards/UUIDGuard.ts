@@ -15,9 +15,9 @@ export class UUIDGuard implements CanActivate {
     const uuid = route.params['uuid'];
     return this.auth.checkInviteUUID(uuid).pipe(
       map(valid => {
-        if (!valid) {
+        if (!valid)
           this.router.navigate(['']);
-        }
+
         return valid;
       }),
       catchError(() => {

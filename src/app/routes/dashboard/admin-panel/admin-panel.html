@@ -22,10 +22,13 @@
     <input type="text" id="name" name="name" placeholder="Name" ngModel required>
     <label for="email">E-Mail: </label>
     <input type="email" id="email" name="email" placeholder="example@mail.com" ngModel required>
-    <input type="submit" class="submit" *ngIf="!inProgress" value="Invite User">
-    <div class="spinner-container" *ngIf="inProgress">
-      <div class="spinner"></div>
-    </div>
+    @if (inProgress) {
+      <div class="spinner-container">
+        <div class="spinner"></div>
+      </div>
+    } @else {
+      <input type="submit" class="submit" value="Invite User">
+    }
   </form>
 </div>
 <div class="panel">

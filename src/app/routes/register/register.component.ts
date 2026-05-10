@@ -1,6 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
 import {FormsModule, NgForm} from "@angular/forms";
-import {NgIf} from "@angular/common";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
 import {animate, state, style, transition, trigger} from "@angular/animations";
@@ -8,10 +7,7 @@ import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-register',
-  imports: [
-    FormsModule,
-    NgIf
-  ],
+  imports: [ FormsModule ],
   animations: [
     trigger('fadeInOut', [
       state('void', style({ opacity: 0 })),

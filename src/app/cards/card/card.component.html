@@ -1,21 +1,25 @@
-<a [href]="card.link" *ngIf="card.link">
+@if (card.link) {
+<a [href]="card.link">
   <ng-container [ngTemplateOutlet]="cardContent"/>
 </a>
-<ng-container *ngIf="!card.link" [ngTemplateOutlet]="cardContent"/>
+} @else {
+  <ng-container [ngTemplateOutlet]="cardContent"/>
+}
 
 <ng-template #cardContent>
   <div class="card container"
        [style.height.px]="cardHeight"
        [style.width.px]="cardWidth"
     >
-    <div class="image"
-         [ngClass]="{
-          'top': card.imgPosition === Position.TOP,
-          'left': card.imgPosition === Position.LEFT
-         }"
-         *ngIf="card.imgPosition === Position.TOP || card.imgPosition === Position.LEFT"
-         [style]="'background-image: url(' + card.img + ')'">
-    </div>
+    @if (card.imgPosition === Position.TOP || card.imgPosition === Position.LEFT) {
+      <div class="image"
+           [ngClass]="{
+            'top': card.imgPosition === Position.TOP,
+            'left': card.imgPosition === Position.LEFT
+           }"
+           [style]="'background-image: url(' + card.img + ')'">
+      </div>
+    }
     <div class="content"
          [ngClass]="{
           'bottom': card.imgPosition === Position.TOP,
@@ -27,20 +31,23 @@
       <h4>
         {{ card.title }}
       </h4>
-      <p *ngIf="card.topic || card.date" class="topic-date secondary">
-        {{ card.topic }} {{ card.topic && card.date ? '•' : '' }} {{ card.date }}
-      </p>
+      @if (card.topic || card.date) {
+        <p class="topic-date secondary">
+          {{ card.topic }} {{ card.topic && card.date ? '•' : '' }} {{ card.date }}
+        </p>
+      }
       <p class="description">
         {{card.description}}
       </p>
     </div>
-    <div class="image"
-         [ngClass]="{
-          'bottom': card.imgPosition === Position.BOTTOM,
-          'right': card.imgPosition === Position.RIGHT
-         }"
-         *ngIf="card.imgPosition === Position.BOTTOM || card.imgPosition === Position.RIGHT"
-         [style]="'background-image: url(' + card.img + ')'">
-    </div>
+    @if (card.imgPosition === Position.BOTTOM || card.imgPosition === Position.RIGHT) {
+      <div class="image"
+           [ngClass]="{
+            'bottom': card.imgPosition === Position.BOTTOM,
+            'right': card.imgPosition === Position.RIGHT
+           }"
+           [style]="'background-image: url(' + card.img + ')'">
+      </div>
+    }
   </div>
 </ng-template>
