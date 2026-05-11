@@ -55,6 +55,7 @@ export class LoginComponent implements OnInit {
     }, { responseType: 'text', withCredentials: true }).subscribe(
       () => {
         this.router.navigateByUrl("/dashboard");
+        this.auth.user().subscribe();
       },
       (err) => {
         this.errorMessage = err.error;

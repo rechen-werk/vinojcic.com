@@ -4,6 +4,7 @@ import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {ActivatedRoute} from "@angular/router";
+import {AuthService} from "../../../services/auth-service/auth.service";
 
 @Component({
   selector: 'app-register',
@@ -35,8 +36,9 @@ export class RegisterComponent {
   protected email: string | null = null;
 
   constructor(
-    private http: HttpClient,
-    private route: ActivatedRoute
+    private readonly http: HttpClient,
+    private readonly route: ActivatedRoute,
+    private readonly auth: AuthService,
     ) {
     this.uuid = this.route.snapshot.paramMap.get('uuid');
     this.getInvitation();
@@ -68,6 +70,7 @@ export class RegisterComponent {
             this.successMessage = null;
           }, 5000);
           this.inProgress = false;
+          this.auth.user().subscribe();
         },
         (err) => {
           this.errorMessage = err.error;

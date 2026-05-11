@@ -1,11 +1,15 @@
 import {Component} from '@angular/core';
 import {Router, RouterLink} from "@angular/router";
+import {User} from "../../model/User";
+import {NgOptimizedImage} from "@angular/common";
+import {AuthService} from "../../services/auth-service/auth.service";
 
 @Component({
   selector: 'app-header',
   standalone: true,
   imports: [
-    RouterLink
+    RouterLink,
+    NgOptimizedImage
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
@@ -15,7 +19,16 @@ export class HeaderComponent {
   private timer: number | null = null;
   private timer2: number | null = null;
 
-  constructor(private router: Router) {
+  isUserMenuOpen = false;
+  currentUser: User | null = null;
+
+  constructor(
+    private router: Router,
+    private auth: AuthService,
+  ) {
+    if (window.self === window.top) {
+      this.auth.user$.subscribe(cu => this.currentUser = cu);
+    }
   }
 
   clickOnLogo() {
@@ -45,5 +58,19 @@ export class HeaderComponent {
       this.router.navigateByUrl("/");
       this.clickCount = 0;
     }
+  }
+
+  clickOnProfile(): void {
+    this.isUserMenuOpen = !this.isUserMenuOpen;
+  }
+
+  closeUserMenu(): void {
+    this.isUserMenuOpen = false;
+  }
+
+  onLogout(): void {
+    this.auth.logout().subscribe();
+    this.closeUserMenu();
+    this.router.navigateByUrl("/login");
   }
 }
