@@ -1,4 +1,4 @@
-<div class="container">
+<div class="page">
   <h1>Contact Me</h1>
   <p>Feel free to get in touch!</p>
   <form (ngSubmit)="send($event)" #contactForm="ngForm">
@@ -15,7 +15,7 @@
         <div class="spinner"></div>
       </div>
     } @else {
-      <input type="submit"  class="submit" value="Submit">
+      <input type="submit" value="Submit">
     }
   </form>
   @if (showSuccessMessage) {
@@ -27,5 +27,4 @@
 
   <p>Or, send me an E-mail like in the old days to <a href="mailto:adrian.vinojcic@gmail.com">adrian.vinojcic&#64;gmail.com</a>.
   </p>
-
 </div>

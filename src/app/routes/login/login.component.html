@@ -1,4 +1,4 @@
-<div class="container">
+<div class="page">
   <h1>Dashboard Login</h1>
   <form (ngSubmit)="login($event)" #loginForm="ngForm">
     <label for="username">Username: </label>
@@ -10,7 +10,7 @@
         <div class="spinner"></div>
       </div>
     } @else {
-      <input type="submit" class="submit" value="Log in">
+      <input type="submit" value="Log in">
     }
   </form>
   <div class="message-container">

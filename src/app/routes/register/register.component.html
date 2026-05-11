@@ -1,4 +1,4 @@
-<div class="container">
+<div class="page">
   <h2>Hello {{name}}</h2>
   <form (ngSubmit)="register($event)" #registerForm="ngForm">
     <label for="email">E-Mail: </label>
@@ -14,7 +14,7 @@
         <div class="spinner"></div>
       </div>
     } @else {
-      <input type="submit" class="submit" value="Sign up">
+      <input type="submit" value="Sign up">
     }
   </form>
   <div class="message-container">
