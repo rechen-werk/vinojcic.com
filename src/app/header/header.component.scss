@@ -123,6 +123,7 @@
       align-items: center;
       gap: 12px;
       height: 100%;
+      overflow-x: hidden;
     }
 
     a {
@@ -134,3 +135,9 @@
     }
   }
 }
+@media (max-width: 500px) {
+  :host .container button.user-button .username {
+    display: none;
+  }
+}
+
