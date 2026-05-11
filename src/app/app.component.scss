@@ -1,10 +1,8 @@
 :host {
-  width: 100vw;
-  height: 100vh;
   display: flex;
   flex-direction: column;
 
-  .container {
+  .application {
     display: flex;
     flex: 1;
     flex-direction: column;
