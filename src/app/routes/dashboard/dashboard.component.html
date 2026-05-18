@@ -1,9 +1,7 @@
-<div class="container">
-  @for (widget of widgets; track widget.name) {
-    <widget [widget]="widget" />
-  } @empty {
-    <p>
-      Contact me to be unlocked for applications.
-    </p>
-  }
-</div>
+@for (widget of widgets; track widget.name) {
+  <widget [widget]="widget" />
+} @empty {
+  <p>
+    Contact me to be unlocked for applications.
+  </p>
+}

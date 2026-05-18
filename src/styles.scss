@@ -231,7 +231,7 @@ $xl-screen: 1200px;
   .page {
     max-width: 70%;
     width: 700px;
-    padding: 16px;
+    padding: 32px;
   }
 }
 
@@ -239,4 +239,9 @@ html {
   width: 100vw;
   height: 100vh;
   @include apply-theme($theme);
+}
+
+:root {
+  scrollbar-width: thin;
+  scrollbar-color: #575656 #494949;
 }

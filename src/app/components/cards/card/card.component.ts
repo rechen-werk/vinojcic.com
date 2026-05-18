@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {Card, Position} from "../../../model/Card";
+import {Card, Position} from "../../../../model/Card";
 import {NgClass, NgTemplateOutlet} from "@angular/common";
 import {CardsComponent} from "../cards.component";
 

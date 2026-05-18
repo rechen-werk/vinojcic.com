@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, HostListener, Input} from '@angular/core';
 import {ApplicationWidget} from "../../../../model/ApplicationWidget";
 import {Router} from "@angular/router";
 import {DomSanitizer} from "@angular/platform-browser";
@@ -15,6 +15,8 @@ export class Widget {
     private router: Router,
     protected sanitizer: DomSanitizer
   ) {}
+
+  @HostListener('click', ['$event'])
   open(event: Event) {
     event.preventDefault();
     this.router.navigateByUrl(`${this.widget.path}`);
