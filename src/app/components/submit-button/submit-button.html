@@ -1,0 +1,7 @@
+@if (inProgress) {
+  <div class="spinner-container">
+    <div class="spinner"></div>
+  </div>
+} @else {
+  <button (click)="run()">{{text}}</button>
+}

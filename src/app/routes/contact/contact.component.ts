@@ -3,11 +3,13 @@ import {FormsModule, NgForm} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
 import {animate, state, style, transition, trigger} from "@angular/animations";
+import {SubmitButton} from "../../components/submit-button/submit-button";
+import {firstValueFrom} from "rxjs";
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [ FormsModule ],
+  imports: [FormsModule, SubmitButton],
   animations: [
     trigger('fadeInOut', [
       state('void', style({ opacity: 0 })),
@@ -28,28 +30,17 @@ export class ContactComponent {
   @ViewChild('contactForm') private contactForm!: NgForm;
   protected showSuccessMessage = false;
   protected showErrorMessage = false;
-  protected inProgress = false;
 
   constructor(private http: HttpClient) {}
 
-  send(event: SubmitEvent) {
-    event.preventDefault();
-    this.inProgress = true;
-    this.http.post(`${environment.API_BASE_URL}/contact`, this.contactForm.value).subscribe(
-      () => {
-        this.showSuccessMessage = true;
-        this.inProgress = false;
-        setTimeout(() => {
-          this.showSuccessMessage = false;
-        }, 2000);
-      },
-      () => {
-        this.showErrorMessage = true;
-        this.inProgress = false;
-        setTimeout(() => {
-          this.showErrorMessage = false;
-        }, 3000);
-      }
-    );
-  }
+  sendAction = async (): Promise<void> => {
+    try {
+      await firstValueFrom(this.http.post(`${environment.API_BASE_URL}/contact`, this.contactForm.value));
+      this.showSuccessMessage = true;
+      setTimeout(() => { this.showSuccessMessage = false; }, 5000);
+    } catch (err: any) {
+      this.showErrorMessage = true;
+      setTimeout(() => { this.showErrorMessage = false; }, 5000);
+    }
+  };
 }

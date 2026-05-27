@@ -5,10 +5,12 @@ import {environment} from "../../../environments/environment";
 import {Router} from "@angular/router";
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {AuthService} from "../../../services/auth-service/auth.service";
+import {SubmitButton} from "../../components/submit-button/submit-button";
+import {firstValueFrom} from "rxjs";
 
 @Component({
   selector: 'app-login',
-  imports: [ FormsModule ],
+  imports: [FormsModule, SubmitButton],
   animations: [
     trigger('fadeInOut', [
       state('void', style({ opacity: 0 })),
@@ -27,8 +29,23 @@ import {AuthService} from "../../../services/auth-service/auth.service";
 export class LoginComponent implements OnInit {
   @ViewChild('loginForm') private loginForm!: NgForm;
 
-  protected inProgress = false;
   protected errorMessage: string | null = null
+  loginAction = async(): Promise<void> => {
+    try {
+      await firstValueFrom(
+        this.http.post(`${environment.API_BASE_URL}/auth/login`, {
+          username: this.loginForm.value.username,
+          password: this.loginForm.value.password
+        }, { responseType: 'text', withCredentials: true })
+      );
+      await firstValueFrom(this.auth.user());
+      await this.router.navigateByUrl("/dashboard");
+    } catch (err: any) {
+      this.errorMessage = err?.error ?? 'Login fehlgeschlagen';
+      setTimeout(() => { this.errorMessage = null; }, 5000);
+    }
+
+  };
 
   constructor(
     private http: HttpClient,
@@ -44,27 +61,5 @@ export class LoginComponent implements OnInit {
         }
       }
     )
-  }
-
-  login(event: SubmitEvent) {
-    event.preventDefault();
-    this.inProgress = true;
-    this.http.post(`${environment.API_BASE_URL}/auth/login`, {
-      username: this.loginForm.value.username,
-      password: this.loginForm.value.password
-    }, { responseType: 'text', withCredentials: true }).subscribe(
-      () => {
-        this.router.navigateByUrl("/dashboard");
-        this.auth.user().subscribe();
-      },
-      (err) => {
-        this.errorMessage = err.error;
-        this.inProgress = false;
-        setTimeout(() => {
-          this.errorMessage = null;
-        }, 5000);
-        this.inProgress = false;
-      }
-    );
   }
 }

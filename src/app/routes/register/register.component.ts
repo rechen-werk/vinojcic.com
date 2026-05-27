@@ -5,10 +5,12 @@ import {environment} from "../../../environments/environment";
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {ActivatedRoute} from "@angular/router";
 import {AuthService} from "../../../services/auth-service/auth.service";
+import {SubmitButton} from "../../components/submit-button/submit-button";
+import {firstValueFrom} from "rxjs";
 
 @Component({
   selector: 'app-register',
-  imports: [ FormsModule ],
+  imports: [FormsModule, SubmitButton],
   animations: [
     trigger('fadeInOut', [
       state('void', style({ opacity: 0 })),
@@ -27,7 +29,6 @@ import {AuthService} from "../../../services/auth-service/auth.service";
 export class RegisterComponent {
   @ViewChild('registerForm') private registerForm!: NgForm;
 
-  protected inProgress = false;
   protected successMessage: string | null = null
   protected errorMessage: string | null = null
 
@@ -54,35 +55,26 @@ export class RegisterComponent {
       });
   }
 
-  register(event: SubmitEvent) {
-    event.preventDefault();
-    this.inProgress = true;
-    if (this.registerForm.value.password === this.registerForm.value.confirmPassword) {
-      this.http.post(`${environment.API_BASE_URL}/auth/register`, {
-        uuid: this.uuid,
-        username: this.registerForm.value.username,
-        password: this.registerForm.value.password
-      }, { responseType: 'text', withCredentials: true }).subscribe(
-        (res) => {
-          this.successMessage = res;
-          this.inProgress = false;
-          setTimeout(() => {
-            this.successMessage = null;
-          }, 5000);
-          this.inProgress = false;
-          this.auth.user().subscribe();
-        },
-        (err) => {
-          this.errorMessage = err.error;
-          this.inProgress = false;
-          setTimeout(() => {
-            this.errorMessage = null;
-          }, 5000);
-          this.inProgress = false;
-        }
-      );
-    } else {
-      this.inProgress = false;
+  registerAction = async (): Promise<void> => {
+    if (this.registerForm.value.password !== this.registerForm.value.confirmPassword) {
+      this.errorMessage = 'Passwörter stimmen nicht überein';
+      setTimeout(() => { this.errorMessage = null; }, 5000);
+      return;
     }
-  }
+    try {
+      this.successMessage = await firstValueFrom(
+        this.http.post(`${environment.API_BASE_URL}/auth/register`, {
+          uuid: this.uuid,
+          username: this.registerForm.value.username,
+          password: this.registerForm.value.password
+        }, {responseType: 'text', withCredentials: true})
+      );
+      setTimeout(() => { this.successMessage = null; }, 5000);
+
+      await firstValueFrom(this.auth.user());
+    } catch (err: any) {
+      this.errorMessage = err?.error ?? 'Registrierung fehlgeschlagen';
+      setTimeout(() => { this.errorMessage = null; }, 5000);
+    }
+  };
 }

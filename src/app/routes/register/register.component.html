@@ -1,6 +1,6 @@
 <div class="page">
   <h2>Hello {{name}}</h2>
-  <form (ngSubmit)="register($event)" #registerForm="ngForm">
+  <form #registerForm="ngForm">
     <label for="email">E-Mail: </label>
     <input type="email" id="email" disabled value="{{email}}">
     <label for="username">Username: </label>
@@ -9,13 +9,7 @@
     <input type="password" id="password" name="password" placeholder="Password" ngModel required>
     <label for="confirmPassword">Repeat Password: </label>
     <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Password" ngModel required>
-    @if (inProgress) {
-      <div class="spinner-container">
-        <div class="spinner"></div>
-      </div>
-    } @else {
-      <input type="submit" value="Sign up">
-    }
+    <submit-button text="Sign up" [action]="registerAction"/>
   </form>
   <div class="message-container">
     @if (errorMessage !== null) {
