@@ -1,0 +1,78 @@
+.toast-container {
+  position: fixed;
+  bottom: 12px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 500px;
+  max-width: 70%;
+}
+
+.toast {
+  padding: 14px 8px 14px 18px;
+  border-radius: 16px;
+  backdrop-filter: blur(16px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  animation: slideIn 0.2s ease;
+}
+
+.success {
+  background: rgba(80, 200, 120, 0.2);
+  .close-btn {
+    background: rgba(80, 200, 120, 0.1);
+  }
+}
+
+.error {
+  background: rgba(255, 80, 80, 0.2);
+  .close-btn {
+    background: rgba(255, 80, 80, 0.1);
+  }
+}
+
+.warning {
+  background: rgba(255, 180, 0, 0.2);
+  .close-btn {
+    background: rgba(255, 180, 0, 0.1);
+  }
+}
+
+.info {
+  background: rgba(70, 130, 255, 0.2);
+  .close-btn {
+    background: rgba(70, 130, 255, 0.1);
+  }
+}
+
+.close-btn {
+  border: none;
+  width: 24px;
+  height: 24px;
+  margin: 6px;
+  padding: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1rem;
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

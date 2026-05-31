@@ -7,9 +7,4 @@
     <input type="password" id="password" name="password" placeholder="Password" ngModel required>
     <submit-button text="Log in" [action]="loginAction"/>
   </form>
-  <div class="message-container">
-    @if (errorMessage !== null) {
-      <div class="error-message" [@fadeInOut]>{{errorMessage}}</div>
-    }
-  </div>
 </div>

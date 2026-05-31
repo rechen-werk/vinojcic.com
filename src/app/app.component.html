@@ -1,9 +1,16 @@
 @if (window.self !== window.top) {
   <router-outlet />
+} @else if (window.location.pathname === '/admin-panel') {
+  <app-header />
+  <div class="application">
+    <router-outlet/>
+    <notification/>
+  </div>
 } @else {
   <app-header />
   <div class="application">
     <router-outlet />
+    <notification/>
     <app-footer />
   </div>
 }

@@ -1,38 +1,96 @@
-<div class="page">
-  <div class="panel">
-    <h2>Users</h2>
-    <ul>
-    @for (user of users; track user.name) {
-      <li>{{ user.name }}</li>
-      <ul>
-      @for (role of user.roles; track role) {
-        <li>{{ role }}</li>
-      }
-      </ul>
-    }
-    </ul>
-    <h2>Pending Invites</h2>
-    <ul>
-      @for (user of invitedUsers; track user.name) {
-        <li>{{ user.name }}</li>
-      }
-    </ul>
-    <h2>Invite User</h2>
-    <form (ngSubmit)="inviteUser($event)" #inviteForm="ngForm">
-      <label for="name">Full Name: </label>
-      <input type="text" id="name" name="name" placeholder="Name" ngModel required>
-      <label for="email">E-Mail: </label>
-      <input type="email" id="email" name="email" placeholder="example@mail.com" ngModel required>
-      @if (inProgress) {
-        <div class="spinner-container">
-          <div class="spinner"></div>
+<h1>Admin Panel</h1>
+<div class="panel users-panel">
+  <h2>Users</h2>
+    <div class="users-grid">
+      @for (user of users; track user.username) {
+        <div class="user-card">
+          <div class="user-card-header">
+            <div>
+              <h3>{{ user.name }}</h3>
+              <span>{{ user.username }}</span>
+            </div>
+            <button class="danger-btn" (click)="deleteUser(user.username)">
+              Delete
+            </button>
+          </div>
+          <div class="roles-container">
+            <h4>Roles</h4>
+            <div class="role-dropzone assigned" (dragover)="allowDrop($event)" (drop)="dropRole($event, user.username, true)">
+              @for (role of user.roles; track role) {
+                <div class="role-chip assigned-role" draggable="true" (dragstart)="dragRole($event, role, user.username)">
+                  <span>{{ role }}</span>
+                  <button class="icon-btn" (click)="removeRoleFromUser(user.username, role)">
+                    ✕
+                  </button>
+                </div>
+              }
+            </div>
+          </div>
         </div>
-      } @else {
-        <input type="submit" class="submit" value="Invite User">
       }
-    </form>
+    </div>
+</div>
+
+
+
+
+<div class="panel invited-users-panel">
+  <h2>Pending Invites</h2>
+  <div class="invite-list">
+    @for (user of invitedUsers; track user.email) {
+      <div class="invite-card">
+        <div>
+          <strong>{{ user.name }}</strong>
+          <span>{{ user.email }}</span>
+        </div>
+      </div>
+    }
   </div>
-  <div class="panel">
-    <h1>Roles</h1>
+  <h2>Invite User</h2>
+  <form class="invite-form" #inviteForm="ngForm">
+    <label for="name">Full Name</label>
+    <input type="text" id="name" name="name" placeholder="Max Mustermann" ngModel required>
+    <label for="invite-email">E-Mail</label>
+    <input type="email" id="invite-email" name="email" placeholder="max.mustermann@mail.com" ngModel required>
+    <submit-button text="Invite User" [action]="inviteUserAction"/>
+  </form>
+</div>
+
+
+<div class="panel roles-panel">
+  <h2>Roles</h2>
+
+  <form
+    class="create-role-form"
+    (ngSubmit)="createRole()">
+
+    <input
+      type="text"
+      [(ngModel)]="newRoleName"
+      name="newRole"
+      placeholder="New role name"
+      required>
+
+    <button type="submit" class="primary-btn">
+      Create Role
+    </button>
+  </form>
+
+  <div class="roles-list">
+    @for (role of roles; track role.name) {
+      <div class="role-list-item">
+
+        <div class="role-info">
+          <div class="role-dot"></div>
+          <span>{{ role.name }}</span>
+        </div>
+
+        <button
+          class="danger-btn"
+          (click)="deleteRole(role.name)">
+          Delete
+        </button>
+      </div>
+    }
   </div>
 </div>

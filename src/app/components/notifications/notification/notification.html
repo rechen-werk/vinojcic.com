@@ -1,0 +1,12 @@
+<div class="toast-container">
+  @for (notification of notifications$ | async; track notification.id) {
+    <div class="toast"
+      [class.success]="notification.type === 'success'"
+      [class.error]="notification.type === 'error'"
+      [class.warning]="notification.type === 'warning'"
+      [class.info]="notification.type === 'info'">
+      <span>{{ notification.message }}</span>
+      <button class="close-btn" (click)="close(notification.id)">✕</button>
+    </div>
+  }
+</div>
