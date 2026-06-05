@@ -7,6 +7,7 @@ import {AuthService} from "../../../services/auth-service/auth.service";
 import {SubmitButton} from "../../components/submit-button/submit-button";
 import {firstValueFrom} from "rxjs";
 import {NotificationService} from "../../components/notifications/NotificationService";
+import {OkStatusMessage} from "../../../model/OkStatusMessage";
 
 @Component({
   selector: 'app-register',
@@ -46,15 +47,15 @@ export class RegisterComponent {
       return;
     }
     try {
-      const msg = await firstValueFrom(
-        this.http.post(`${environment.API_BASE_URL}/auth/register`, {
+      const res = await firstValueFrom(
+        this.http.post<OkStatusMessage>(`${environment.API_BASE_URL}/auth/register`, {
           uuid: this.uuid,
           username: this.registerForm.value.username,
           password: this.registerForm.value.password
-        }, {responseType: 'text', withCredentials: true})
+        }, {  withCredentials: true })
       );
       await firstValueFrom(this.auth.user());
-      this.notification.success(msg);
+      this.notification.success(res.message);
     } catch (err: any) {
       this.notification.error(err.message);
     }

@@ -3,35 +3,29 @@
   <h2>Users</h2>
     <div class="users-grid">
       @for (user of users; track user.username) {
-        <div class="user-card">
-          <div class="user-card-header">
-            <div>
-              <h3>{{ user.name }}</h3>
-              <span>{{ user.username }}</span>
-            </div>
+        <details class="user-card" (dragover)="allowDrop($event)" (drop)="dropRole($event, user.username)">
+          <summary class="user-card-summary">
+            <h3>{{ user.name }}</h3>
+            <span>{{ user.username }}</span>
+          </summary>
             <button class="danger-btn" (click)="deleteUser(user.username)">
               Delete
             </button>
-          </div>
-          <div class="roles-container">
-            <h4>Roles</h4>
-            <div class="role-dropzone assigned" (dragover)="allowDrop($event)" (drop)="dropRole($event, user.username, true)">
+          <details class="roles-container">
+            <summary>Roles</summary>
+            <div class="role-dropzone">
               @for (role of user.roles; track role) {
-                <div class="role-chip assigned-role" draggable="true" (dragstart)="dragRole($event, role, user.username)">
+                <div class="role-chip">
                   <span>{{ role }}</span>
-                  <button class="icon-btn" (click)="removeRoleFromUser(user.username, role)">
-                    ✕
-                  </button>
+                  <button class="icon-btn" (click)="removeRoleFromUser(user.username, role)">✕</button>
                 </div>
               }
             </div>
-          </div>
-        </div>
+          </details>
+        </details>
       }
     </div>
 </div>
-
-
 
 
 <div class="panel invited-users-panel">
@@ -55,41 +49,24 @@
     <submit-button text="Invite User" [action]="inviteUserAction"/>
   </form>
 </div>
-
-
 <div class="panel roles-panel">
   <h2>Roles</h2>
-
-  <form
-    class="create-role-form"
-    (ngSubmit)="createRole()">
-
-    <input
-      type="text"
-      [(ngModel)]="newRoleName"
-      name="newRole"
-      placeholder="New role name"
-      required>
-
-    <button type="submit" class="primary-btn">
-      Create Role
-    </button>
+  <form class="create-role-form">
+    <input type="text" [(ngModel)]="newRoleName" name="newRole" placeholder="New role name" required>
+    <submit-button text="Create Role" [action]="createRoleAction"/>
   </form>
-
   <div class="roles-list">
-    @for (role of roles; track role.name) {
-      <div class="role-list-item">
-
+    @for (role of roles; track role) {
+      <div class="role-list-item" draggable="true" (dragstart)="dragRole($event, role.name)">
         <div class="role-info">
           <div class="role-dot"></div>
           <span>{{ role.name }}</span>
         </div>
-
-        <button
-          class="danger-btn"
-          (click)="deleteRole(role.name)">
+        @if (role.deletable) {
+        <button class="danger-btn" (click)="deleteRole(role)">
           Delete
         </button>
+        }
       </div>
     }
   </div>

@@ -5,6 +5,8 @@ import { FormsModule, NgForm } from "@angular/forms";
 import { SubmitButton } from "../../../components/submit-button/submit-button";
 import { firstValueFrom } from "rxjs";
 import { NotificationService } from "../../../components/notifications/NotificationService";
+import { Role } from "../../../../model/Role";
+import {OkStatusMessage} from "../../../../model/OkStatusMessage";
 
 @Component({
   selector: 'app-admin-panel',
@@ -15,7 +17,7 @@ import { NotificationService } from "../../../components/notifications/Notificat
 export class AdminPanel {
   users: { name: string, username: string, roles: string[] }[] = [];
   invitedUsers: { name: string, email: string }[] = [];
-  roles: { name: string }[] = [];
+  roles: Role[] = [];
   newRoleName = '';
   draggedRole: string | null = null;
 
@@ -31,8 +33,7 @@ export class AdminPanel {
   }
 
   getUsers() {
-    this.http.get<{ name: string, username: string, roles: string[] }[]>(
-      `${environment.API_BASE_URL}/admin/list-users`,
+    this.http.get<{ name: string, username: string, roles: string[] }[]>(`${environment.API_BASE_URL}/admin/users/list`,
       { withCredentials: true }
     ).subscribe({
       next: (res) => {
@@ -42,8 +43,7 @@ export class AdminPanel {
   }
 
   getInvitedUsers() {
-    this.http.get<{ name: string, email: string }[]>(
-      `${environment.API_BASE_URL}/admin/list-invited-users`,
+    this.http.get<{ name: string, email: string }[]>(`${environment.API_BASE_URL}/admin/users/list-invited`,
       { withCredentials: true }
     ).subscribe({
       next: (res) => {
@@ -53,8 +53,7 @@ export class AdminPanel {
   }
 
   getRoles() {
-    this.http.get<{ name: string }[]>(
-      `${environment.API_BASE_URL}/admin/list-roles`,
+    this.http.get<Role[]>(`${environment.API_BASE_URL}/admin/roles/list`,
       { withCredentials: true }
     ).subscribe({
       next: (res) => {
@@ -66,137 +65,106 @@ export class AdminPanel {
   inviteUserAction = async(): Promise<void> => {
     try {
       const res = await firstValueFrom(
-        this.http.post(`${environment.API_BASE_URL}/admin/add-user`, {
+        this.http.post<OkStatusMessage>(`${environment.API_BASE_URL}/admin/users/add`, {
           name: this.inviteForm.value.name,
           email: this.inviteForm.value.email
-        }, {responseType: 'text', withCredentials: true})
+        }, { withCredentials: true})
       );
-      this.notification.success(res);
+      this.notification.success(res.message);
       this.inviteForm.resetForm();
       this.getInvitedUsers();
     } catch (err: any) {
-      this.notification.error(err.message);
+      this.notification.error(err.error.message);
     }
   };
 
-  createRole() {
+  createRoleAction = async(): Promise<void> => {
     if (!this.newRoleName.trim()) {
+      this.notification.info("No role name provided.");
       return;
     }
-
-    this.http.post(
-      `${environment.API_BASE_URL}/admin/create-role`,
-      { role: this.newRoleName },
-      {
-        responseType: 'text',
-        withCredentials: true
-      }
-    ).subscribe({
-      next: (res) => {
-        this.notification.success(res);
-        this.newRoleName = '';
-        this.getRoles();
-      },
-      error: (err) => {
-        this.notification.error(err.message);
-      }
-    });
-  }
-
-  deleteRole(role: string) {
-    if (!confirm(`Delete role "${role}"?`)) {
-      return;
+    try {
+      const res = await firstValueFrom(
+        this.http.post<OkStatusMessage>(`${environment.API_BASE_URL}/admin/roles/create`, this.newRoleName, { withCredentials: true })
+      );
+      this.notification.success(res.message);
+      this.newRoleName = '';
+      this.getRoles();
+    } catch (err: any) {
+      this.notification.error(err.error.message);
     }
+  };
 
-    this.http.delete(
-      `${environment.API_BASE_URL}/admin/delete-role/${role}`,
-      {
-        responseType: 'text',
-        withCredentials: true
-      }
+  deleteRole(role: Role) {
+    if (!confirm(`Delete role "${role.name}"?`))
+      return;
+
+    this.http.delete<OkStatusMessage>(`${environment.API_BASE_URL}/admin/roles/${role.name}`,
+      { withCredentials: true }
     ).subscribe({
       next: (res) => {
-        this.notification.success(res);
+        this.notification.success(res.message);
         this.getRoles();
         this.getUsers();
       },
       error: (err) => {
-        this.notification.error(err.message);
+        this.notification.error(err.error.message);
       }
     });
   }
 
   deleteUser(username: string) {
-
-    if (!confirm(`Delete user "${username}"?`)) {
+    if (!confirm(`Delete user "${username}"?`))
       return;
-    }
 
-    this.http.delete(
-      `${environment.API_BASE_URL}/admin/delete-user/${username}`,
-      {
-        responseType: 'text',
-        withCredentials: true
-      }
+    this.http.delete<OkStatusMessage>(`${environment.API_BASE_URL}/admin/users/${username}`,
+      { withCredentials: true }
     ).subscribe({
       next: (res) => {
-        this.notification.success(res);
+        this.notification.success(res.message);
         this.getUsers();
       },
       error: (err) => {
-        this.notification.error(err.message);
+        this.notification.error(err.error.message);
       }
     });
   }
 
   assignRole(username: string, role: string) {
-    this.http.post(`${environment.API_BASE_URL}/admin/assign-role`,
-      { username, role},
-      { responseType: 'text', withCredentials: true }
+    this.http.post(`${environment.API_BASE_URL}/admin/users/assign-role`,
+      { username, role },
+      { withCredentials: true }
     ).subscribe({
       next: () => { this.getUsers(); }
     });
   }
 
   removeRoleFromUser(username: string, role: string) {
-    this.http.post(
-      `${environment.API_BASE_URL}/admin/remove-role`,
+    this.http.post(`${environment.API_BASE_URL}/admin/users/remove-role`,
       { username, role },
-      { responseType: 'text', withCredentials: true }
+      { withCredentials: true }
     ).subscribe({
-      next: () => { this.getUsers(); }
+      next: () => { this.getUsers(); },
+      error: (err) => { this.notification.error(err.error.message); }
     });
   }
 
-  dragRole(event: DragEvent, role: string, username: string) {
+  dragRole(event: DragEvent, role: string) {
     this.draggedRole = role;
-
     event.dataTransfer?.setData('role', role);
-    event.dataTransfer?.setData('username', username);
   }
 
   allowDrop(event: DragEvent) {
     event.preventDefault();
   }
 
-  dropRole(event: DragEvent, username: string, assign: boolean) {
+  dropRole(event: DragEvent, username: string) {
     event.preventDefault();
 
     const role = event.dataTransfer?.getData('role');
     if (!role) {
       return;
     }
-
-    if (assign) {
-      this.assignRole(username, role);
-    } else {
-      this.removeRoleFromUser(username, role);
-    }
-  }
-
-  getAvailableRoles(userRoles: string[]) {
-    return this.roles.filter(
-      role => !userRoles.includes(role.name)
-    );
+    this.assignRole(username, role);
   }
 }

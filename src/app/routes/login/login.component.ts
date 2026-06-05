@@ -7,6 +7,7 @@ import {AuthService} from "../../../services/auth-service/auth.service";
 import {SubmitButton} from "../../components/submit-button/submit-button";
 import {firstValueFrom} from "rxjs";
 import {NotificationService} from "../../components/notifications/NotificationService";
+import {OkStatusMessage} from "../../../model/OkStatusMessage";
 
 @Component({
   selector: 'app-login',
@@ -27,15 +28,15 @@ export class LoginComponent implements OnInit {
   loginAction = async(): Promise<void> => {
     try {
       await firstValueFrom(
-        this.http.post(`${environment.API_BASE_URL}/auth/login`, {
+        this.http.post<OkStatusMessage>(`${environment.API_BASE_URL}/auth/login`, {
           username: this.loginForm.value.username,
           password: this.loginForm.value.password
-        }, { responseType: 'text', withCredentials: true })
+        }, { withCredentials: true })
       );
       await firstValueFrom(this.auth.user());
       await this.router.navigateByUrl("/dashboard");
     } catch (err: any) {
-      this.notification.error(err.message);
+      this.notification.error(err.error.message);
     }
   };
 
