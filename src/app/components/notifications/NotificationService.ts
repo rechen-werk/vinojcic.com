@@ -9,13 +9,14 @@ export class NotificationService {
   private notificationsSubject = new BehaviorSubject<NotificationItem[]>([]);
   notifications$ = this.notificationsSubject.asObservable();
   private currentId = 0;
+  private defaultDuration = 5000;
 
-  success(message: string) { this.show(message, 'success'); }
-  error(message: string) { this.show(message, 'error'); }
-  warning(message: string) { this.show(message, 'warning'); }
-  info(message: string) { this.show(message, 'info'); }
+  success(message: string, duration = this.defaultDuration) { this.show(message, 'success', duration); }
+  error(message: string, duration = this.defaultDuration) { this.show(message, 'error', duration); }
+  warning(message: string, duration = this.defaultDuration) { this.show(message, 'warning', duration); }
+  info(message: string, duration = this.defaultDuration) { this.show(message, 'info', duration); }
 
-  private show(message: string, type: NotificationItem['type'], duration = 5000) {
+  private show(message: string, type: NotificationItem['type'], duration: number) {
     const notification: NotificationItem = {
       id: ++this.currentId,
       message,

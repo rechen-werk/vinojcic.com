@@ -7,10 +7,11 @@ import { firstValueFrom } from "rxjs";
 import { NotificationService } from "../../../components/notifications/NotificationService";
 import { Role } from "../../../../model/Role";
 import {OkStatusMessage} from "../../../../model/OkStatusMessage";
+import {NgClass} from "@angular/common";
 
 @Component({
   selector: 'app-admin-panel',
-  imports: [FormsModule, SubmitButton],
+  imports: [FormsModule, SubmitButton, NgClass],
   templateUrl: './admin-panel.html',
   styleUrl: './admin-panel.scss',
 })
@@ -84,10 +85,9 @@ export class AdminPanel {
       return;
     }
     try {
-      const res = await firstValueFrom(
+      await firstValueFrom(
         this.http.post<OkStatusMessage>(`${environment.API_BASE_URL}/admin/roles/create`, this.newRoleName, { withCredentials: true })
       );
-      this.notification.success(res.message);
       this.newRoleName = '';
       this.getRoles();
     } catch (err: any) {
@@ -96,14 +96,10 @@ export class AdminPanel {
   };
 
   deleteRole(role: Role) {
-    if (!confirm(`Delete role "${role.name}"?`))
-      return;
-
     this.http.delete<OkStatusMessage>(`${environment.API_BASE_URL}/admin/roles/${role.name}`,
       { withCredentials: true }
     ).subscribe({
-      next: (res) => {
-        this.notification.success(res.message);
+      next: () => {
         this.getRoles();
         this.getUsers();
       },
@@ -113,7 +109,9 @@ export class AdminPanel {
     });
   }
 
-  deleteUser(username: string) {
+  deleteUser(event: Event, username: string) {
+    event.preventDefault();
+    event.stopPropagation();
     if (!confirm(`Delete user "${username}"?`))
       return;
 
