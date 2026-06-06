@@ -2,7 +2,7 @@ import {Component, ViewChild} from '@angular/core';
 import {FormsModule, NgForm} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {AuthService} from "../../../services/auth-service/auth.service";
 import {SubmitButton} from "../../components/submit-button/submit-button";
 import {firstValueFrom} from "rxjs";
@@ -17,6 +17,7 @@ import {OkStatusMessage} from "../../../model/OkStatusMessage";
 })
 export class RegisterComponent {
   constructor(
+    private readonly router: Router,
     private readonly http: HttpClient,
     private readonly route: ActivatedRoute,
     private readonly auth: AuthService,
@@ -56,6 +57,7 @@ export class RegisterComponent {
       );
       await firstValueFrom(this.auth.user());
       this.notification.success(res.message);
+      await this.router.navigateByUrl("/dashboard");
     } catch (err: any) {
       this.notification.error(err.message);
     }
