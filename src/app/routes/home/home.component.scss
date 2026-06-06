@@ -4,7 +4,7 @@
   flex-grow: 1;
 
   main {
-    padding: 24px 10%;
+    padding: 24px 15%;
 
     section {
       &#about {
@@ -18,60 +18,9 @@
         }
       }
 
-      &#about, &#work, &#education > .schools, &#skills, &#projects {
-        padding: 0 5%;
-        @media (min-width: $m-screen) {
-          padding: 0 15%;
-        }
-      }
-
-      &#work, &#education {
-        .timeline {
-          position: relative;
-          padding-left: 20px;
-        }
-
-        .timeline::before {
-          content: '';
-          position: absolute;
-          top: 10px;
-          left: 10px;
-          width: 2px;
-          height: calc(100% - 10px);
-          background-color: white;
-        }
-
-        .entry {
-          position: relative;
-          margin-bottom: 20px;
-          padding-left: 15px;
-
-          .name {
-            margin-bottom: 6px;
-          }
-
-          .time {
-          }
-
-          .description {
-            margin-top: 10px;
-          }
-
-          padding-bottom: 6px;
-        }
-
-        .entry::before {
-          content: '';
-          position: absolute;
-          left: -16px;
-          top: 8px;
-          transform: translateY(-50%);
-          width: 10px;
-          height: 10px;
-          border: 2px solid white;
-          background-color: black;
-          border-radius: 50%;
-        }
+      button {
+        display: block;
+        margin: 16px auto 0 auto;
       }
     }
   }

@@ -1,6 +1,7 @@
 :host {
   width: 100%;
   max-width: 100%;
+  overflow-x: clip;
 
   .container {
     display: flex;
@@ -9,42 +10,133 @@
     padding: 8px 24px;
     border-bottom-width: 2px;
     border-bottom-style: solid;
+    justify-content: space-between;
 
     button {
       width: fit-content;
       height: fit-content;
       border: none;
       padding: 0;
-      font-size: 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      font-size: 20px;
+      gap: 8px;
 
       .logo {
         width: 50px;
         height: 50px;
-        //border: 0.01px solid white;
+      }
+      &:hover {
+        opacity: 0.7;
+        cursor: pointer;
+        background-color: transparent;
       }
     }
-
-    div.links {
-      padding: 0 8px;
+    button.user-button {
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
-      align-content: center;
+      align-items: center;
+      gap: 8px;
+      font-size: inherit;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    button.user-button .username {
+      font-size: 16px;
+      line-height: 1;
+      color: inherit;
+      white-space: nowrap;
+    }
+
+    .user-menu-wrapper {
+      position: relative;
+    }
+
+    .user-dropdown {
+      position: absolute;
+      right: 0;
+      top: 100%;
+      margin-top: 8px;
+      min-width: 220px;
+      background: #1f1f1f;
+      color: #ffffff;
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      padding: 8px 0;
+      z-index: 1000;
+    }
+
+    .user-dropdown .user-info {
+      padding: 8px 16px 4px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 4px;
+    }
+
+    .user-dropdown .user-info .line {
+      font-size: 14px;
+      margin-bottom: 2px;
+    }
+
+    .user-dropdown .user-info .name {
+      font-weight: 600;
+    }
+
+    .user-dropdown .user-info .roles {
+      font-style: italic;
+      opacity: 0.9;
+    }
+
+    .user-dropdown .menu-separator {
+      display: none;
+    }
+
+    .user-dropdown .menu-item {
       width: 100%;
+      text-align: left;
+      padding: 8px 16px;
+      background: transparent;
+      border: none;
+      font-size: 14px;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    .user-dropdown .menu-item:hover:not(:disabled) {
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .user-dropdown .menu-item:disabled {
+      opacity: 0.4;
+      cursor: default;
+    }
+
+    .user-dropdown .menu-item.danger {
+      color: #ff6b6b;
+    }
+
+
+    div.left, div.right {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 12px;
       height: 100%;
+    }
 
-      div.left, div.right {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 12px;
-        height: 100%;
-      }
-
-      a {
-        font-size: 20px;
-        margin-bottom: 0;
+    a {
+      font-size: 20px;
+      margin-bottom: 0;
+      &:hover {
+        opacity: 0.7;
       }
     }
   }
 }
+@media (max-width: 500px) {
+  :host .container button.user-button .username {
+    display: none;
+  }
+}
+

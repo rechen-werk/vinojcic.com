@@ -1,4 +1,5 @@
 @import "variables";
+@import "animations";
 
 $s-screen: 576px;
 $m-screen: 768px;
@@ -52,16 +53,62 @@ $xl-screen: 1200px;
     flex-direction: column;
     align-items: center;
   }
-  button, input[type="submit"]{
+
+  .danger-btn {
+    width: auto !important;
+    margin: 0 !important;
+    padding: .5rem .8rem !important;
+    font-size: 14px !important;
+    background: #4a1111 !important;
+    border-color: #aa3a3a !important;
+    &:hover {
+      background: #681919 !important;
+    }
+  }
+
+  form {
+    border-radius: 8px;
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 1rem;
+    }
+
+    input, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      height: 150px;
+      resize: vertical;
+    }
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1rem;
+  }
+
+  button, input[type="submit"] {
     background-color: black;
     color: white;
-    border: 2px solid white;
+    border: 1px solid white;
     font-size: 24px;
     padding: 8px 20px;
+    cursor: pointer;
+    margin-bottom: 0;
     &:hover {
       background-color: #212121;
-      border: 2px solid #c5c5c5;
-      cursor: pointer;
+      border: 1px solid #c5c5c5;
+      opacity: 0.9;
     }
   }
 
@@ -74,6 +121,11 @@ $xl-screen: 1200px;
     &:focus {
       background-color: #212121;
       border: 2px solid #c5c5c5;
+    }
+    &:disabled {
+      background-color: #5d5d5d;
+      color: #ffffff;
+      border: 2px solid #883737;
     }
   }
 
@@ -118,6 +170,9 @@ $xl-screen: 1200px;
   .highlight {
     color: theme($highlight-color, $theme);
   }
+  .hidden {
+    display: none;
+  }
   h1 {
     text-transform: uppercase;
     font-size: 48px;
@@ -133,10 +188,73 @@ $xl-screen: 1200px;
   h4 {
     font-size: 18px;
   }
+  .page {
+    max-width: 70%;
+    width: 700px;
+    padding: 32px;
+  }
+
+  .close-btn {
+    border: none;
+    width: 24px;
+    height: 24px;
+    margin: 6px;
+    padding: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    &:hover {
+      opacity: 0.7;
+      border: none;
+    }
+  }
 }
 
 html {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   @include apply-theme($theme);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #4f4f4f transparent;
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-track,
+  ::-webkit-scrollbar-track-piece,
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-button,
+  ::-webkit-scrollbar-button:single-button,
+  ::-webkit-scrollbar-button:increment,
+  ::-webkit-scrollbar-button:decrement,
+  ::-webkit-scrollbar-button:start,
+  ::-webkit-scrollbar-button:end {
+    display: none;
+    width: 0;
+    height: 0;
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #4f4f4f;
+    border-radius: 999px;
+
+    border: 3px solid transparent;
+    background-clip: padding-box;
+    &:hover {
+      background: #6a6a6a;
+      background-clip: padding-box;
+    }
+  }
 }

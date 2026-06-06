@@ -13,13 +13,13 @@ export class RoleGuard implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot): Observable<boolean> {
     const requiredRoles = route.data as { roles: string[] };
-    return this.auth.me().pipe(
+    return this.auth.roles().pipe(
       map(availableRoles => requiredRoles.roles.some(requiredRole => {
-          var hasRole = availableRoles.includes(requiredRole);
-          if (!hasRole) {
-            this.router.navigate(['/dashboard']);
-          }
-          return hasRole
+        const hasRole = availableRoles.includes(requiredRole);
+        if (!hasRole)
+          this.router.navigate(['/dashboard']);
+
+        return hasRole
       })),
       catchError(() => {
         this.router.navigate(['/login']);

@@ -1,16 +1,10 @@
-<div class="container">
+<div class="page">
   <h1>Dashboard Login</h1>
-  <form (ngSubmit)="login($event)" #loginForm="ngForm">
-    <label for="username">Alias: </label>
-    <input type="text" id="username" name="username" placeholder="Name" ngModel required>
-    <label for="password">Secret: </label>
+  <form #loginForm="ngForm">
+    <label for="username">Username: </label>
+    <input type="text" id="username" name="username" placeholder="Username" ngModel required>
+    <label for="password">Password: </label>
     <input type="password" id="password" name="password" placeholder="Password" ngModel required>
-    <input type="submit" class="submit" *ngIf="!inProgress" value="Send it">
-    <div class="spinner-container" *ngIf="inProgress">
-      <div class="spinner"></div>
-    </div>
+    <submit-button text="Log in" [action]="loginAction"/>
   </form>
-  <div class="message-container">
-    <div class="error-message" *ngIf="errorMessage !== null" [@fadeInOut]>{{errorMessage}}</div>
-  </div>
 </div>

@@ -7,7 +7,7 @@ import {
   Input,
   OnDestroy
 } from '@angular/core';
-import {Card} from "../../model/Card";
+import {Card} from "../../../model/Card";
 import {CardComponent} from "./card/card.component";
 import {NgClass, NgForOf} from "@angular/common";
 

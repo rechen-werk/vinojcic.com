@@ -2,58 +2,31 @@ import {Component, ViewChild} from '@angular/core';
 import {FormsModule, NgForm} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
-import {animate, state, style, transition, trigger} from "@angular/animations";
-import {NgIf} from "@angular/common";
+import {SubmitButton} from "../../components/submit-button/submit-button";
+import {firstValueFrom} from "rxjs";
+import {NotificationService} from "../../components/notifications/NotificationService";
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [
-    FormsModule,
-    NgIf
-  ],
-  animations: [
-    trigger('fadeInOut', [
-      state('void', style({ opacity: 0 })),
-      transition(':enter', [
-        style({ opacity: 0 }),
-        animate('0ms', style({ opacity: 1 }))
-      ]),
-      transition(':leave', [
-        animate('1000ms', style({ opacity: 0 }))
-      ])
-    ])
-  ],
+  imports: [FormsModule, SubmitButton],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss'
 })
 export class ContactComponent {
-
   @ViewChild('contactForm') private contactForm!: NgForm;
-  protected showSuccessMessage = false;
-  protected showErrorMessage = false;
-  protected inProgress = false;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private notification: NotificationService
+  ) {}
 
-  send(event: SubmitEvent) {
-    event.preventDefault();
-    this.inProgress = true;
-    this.http.post(`${environment.API_BASE_URL}/contact`, this.contactForm.value).subscribe(
-      () => {
-        this.showSuccessMessage = true;
-        this.inProgress = false;
-        setTimeout(() => {
-          this.showSuccessMessage = false;
-        }, 2000);
-      },
-      () => {
-        this.showErrorMessage = true;
-        this.inProgress = false;
-        setTimeout(() => {
-          this.showErrorMessage = false;
-        }, 3000);
-      }
-    );
-  }
+  sendAction = async (): Promise<void> => {
+    try {
+      await firstValueFrom(this.http.post(`${environment.API_BASE_URL}/contact`, this.contactForm.value));
+      this.notification.success('Thank you for your message! We will get back to you shortly.');
+    } catch (err: any) {
+      this.notification.error('Oops, something went wrong. Please try again later.');
+    }
+  };
 }

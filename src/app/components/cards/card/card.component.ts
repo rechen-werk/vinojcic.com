@@ -1,13 +1,12 @@
 import {Component, Input} from '@angular/core';
-import {Card, Position} from "../../../model/Card";
-import {NgClass, NgIf, NgTemplateOutlet} from "@angular/common";
+import {Card, Position} from "../../../../model/Card";
+import {NgClass, NgTemplateOutlet} from "@angular/common";
 import {CardsComponent} from "../cards.component";
 
 @Component({
   selector: 'card',
   standalone: true,
   imports: [
-    NgIf,
     NgTemplateOutlet,
     NgClass
   ],

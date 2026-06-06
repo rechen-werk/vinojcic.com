@@ -12,12 +12,28 @@ export class RegisteredGuard implements CanActivate {
   canActivate(_route: ActivatedRouteSnapshot): Observable<boolean> {
     return this.auth.hi().pipe(
       map(registered => {
-        if (registered) {
-          return true;
-        } else {
+        if (!registered)
           this.router.navigateByUrl('/login');
-          return false;
-        }
+
+        return registered;
+      })
+    )
+  }
+}
+
+@Injectable({ providedIn: 'root' })
+export class UnregisteredGuard implements CanActivate {
+
+  constructor(private auth: AuthService,
+              private router: Router) {}
+
+  canActivate(_route: ActivatedRouteSnapshot): Observable<boolean> {
+    return this.auth.hi().pipe(
+      map(registered => {
+        if (registered)
+          this.router.navigateByUrl('/dashboard');
+
+        return !registered;
       })
     )
   }

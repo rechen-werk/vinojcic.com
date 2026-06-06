@@ -8,6 +8,8 @@ import {RegisterComponent} from "./routes/register/register.component";
 import {Impressum} from "./routes/impressum/impressum";
 import {RoleGuard} from "../services/guards/RoleGuard";
 import {RegisteredGuard} from "../services/guards/RegisteredGuard";
+import {AdminPanel} from "./routes/dashboard/admin-panel/admin-panel";
+import {UUIDGuard} from "../services/guards/UUIDGuard";
 
 export const routes: Routes = [
   {path: 'contact', component: ContactComponent},
@@ -15,8 +17,10 @@ export const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'dashboard', component: DashboardComponent, canActivate: mapToCanActivate([RegisteredGuard])},
 
+  {path: 'register/:uuid', component: RegisterComponent, canActivate: mapToCanActivate([UUIDGuard])},
+
   // Apps
-  {path: 'register', component: RegisterComponent, canActivate: mapToCanActivate([RoleGuard]), data: { roles: [ 'ROLE_ADMIN' ]}},
+  {path: 'admin-panel', component: AdminPanel, canActivate: mapToCanActivate([RoleGuard]), data: { roles: [ 'ROLE_ADMIN' ]}},
   // todo
 
   // Fallback

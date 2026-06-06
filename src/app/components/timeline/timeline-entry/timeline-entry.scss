@@ -1,0 +1,28 @@
+:host {
+  position: relative;
+  top: -5px;
+  left: 30px;
+  h4 {
+    margin-top: 0;
+  }
+
+  .title {
+    margin-bottom: 6px;
+  }
+  .description {
+    margin-top: 10px;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: -30px;
+    top: 12px;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    border: 2px solid white;
+    background-color: black;
+    border-radius: 50%;
+  }
+}

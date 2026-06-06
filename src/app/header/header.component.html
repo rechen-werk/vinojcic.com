@@ -1,13 +1,53 @@
 <div class="container navbar">
-  <button (click)="clickOnLogo()">
-    <img class="logo" src="assets/favicon/apple-icon-180x180.png" alt="AV logo"/>
-  </button>
-  <div class="links">
-    <div class="left">
-      <a class="navbar" [routerLink]="['/']">Home</a>
-    </div>
-    <div class="right">
-      <a class="navbar" [routerLink]="['/contact']">Contact</a>
-    </div>
+  <div class="left">
+    <button (click)="clickOnLogo()">
+      <img class="logo" ngSrc="assets/favicon/apple-icon-180x180.png" alt="AV logo" height="180" width="180"/>
+      Home
+    </button>
+    <a class="navbar" [routerLink]="['/contact']">Contact</a>
+  </div>
+  <div class="right">
+    @if (currentUser != null) {
+      <div class="user-menu-wrapper"
+           (document:click)="closeUserMenu()"
+           (click)="$event.stopPropagation()">
+
+        <button (click)="clickOnProfile()" class="user-button">
+          <div class="username">
+            {{ currentUser.name }}
+          </div>
+          <img class="logo" src="assets/favicon/apple-icon-180x180.png" alt="User avatar"/>
+        </button>
+
+        @if (isUserMenuOpen) {
+          <div class="user-dropdown">
+            <div class="user-info">
+              <div class="line name">
+                {{ currentUser.name }} ({{ currentUser.username }})
+              </div>
+              <div class="line email">
+                {{ currentUser.email }}
+              </div>
+              <div class="line roles">
+                Rollen: {{ currentUser.roles.join(', ') }}
+              </div>
+            </div>
+
+            <div class="menu-separator"></div>
+
+            <button class="menu-item" disabled>
+              User Settings
+            </button>
+            <button class="menu-item" disabled>
+              Language
+            </button>
+            <button class="menu-item danger" (click)="onLogout()">
+              Log Out
+            </button>
+          </div>
+        }
+      </div>
+    }
+
   </div>
 </div>
