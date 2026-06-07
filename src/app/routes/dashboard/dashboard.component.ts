@@ -17,14 +17,12 @@ import {Router} from "@angular/router";
 export class DashboardComponent {
   widgets : ApplicationWidget[] = [];
   constructor(
-    private http: HttpClient,
-    private auth: UserService,
-    private router: Router) {
+    private http: HttpClient) {
     this.getWidgets();
   }
 
   getWidgets() {
-    this.http.get<{name: string, path: string, icon: string}[]>(`${environment.API_BASE_URL}/app/list`, { withCredentials: true })
+    this.http.get<ApplicationWidget[]>(`${environment.API_BASE_URL}/app/list`, { withCredentials: true })
       .subscribe({
         next: (res) => {
           this.widgets = res;

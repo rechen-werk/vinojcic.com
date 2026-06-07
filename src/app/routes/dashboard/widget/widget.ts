@@ -1,7 +1,8 @@
-import {Component, HostListener, Input} from '@angular/core';
+import {Component, HostListener, Input, OnInit} from '@angular/core';
 import {ApplicationWidget} from "../../../../model/ApplicationWidget";
 import {Router} from "@angular/router";
-import {DomSanitizer} from "@angular/platform-browser";
+import {HttpClient} from "@angular/common/http";
+import {environment} from "../../../../environments/environment";
 
 @Component({
   selector: 'widget',
@@ -9,16 +10,21 @@ import {DomSanitizer} from "@angular/platform-browser";
   templateUrl: './widget.html',
   styleUrl: './widget.scss',
 })
-export class Widget {
+export class Widget implements OnInit{
   @Input() widget!: ApplicationWidget;
+  preview!: String;
   constructor(
     private router: Router,
-    protected sanitizer: DomSanitizer
+    private http: HttpClient,
   ) {}
+
+  ngOnInit(): void {
+    this.http.get(`${environment.API_BASE_URL}${this.widget.path}/preview`, { responseType: 'text', withCredentials: true }).subscribe(res => this.preview = res);
+  }
 
   @HostListener('click', ['$event'])
   open(event: Event) {
     event.preventDefault();
-    this.router.navigateByUrl(`${this.widget.path}`);
+    this.router.navigateByUrl(`${this.widget.frontend}`);
   }
 }
