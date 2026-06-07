@@ -3,7 +3,7 @@ import {FormsModule, NgForm} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
 import {ActivatedRoute, Router} from "@angular/router";
-import {AuthService} from "../../../services/auth-service/auth.service";
+import {UserService} from "../../../services/auth-service/user.service";
 import {SubmitButton} from "../../components/submit-button/submit-button";
 import {firstValueFrom} from "rxjs";
 import {NotificationService} from "../../components/notifications/NotificationService";
@@ -20,7 +20,7 @@ export class RegisterComponent {
     private readonly router: Router,
     private readonly http: HttpClient,
     private readonly route: ActivatedRoute,
-    private readonly auth: AuthService,
+    private readonly userService: UserService,
     private readonly notification: NotificationService
     ) {
     this.uuid = this.route.snapshot.paramMap.get('uuid');
@@ -55,7 +55,7 @@ export class RegisterComponent {
           password: this.registerForm.value.password
         }, {  withCredentials: true })
       );
-      await firstValueFrom(this.auth.user());
+      this.userService.fetchUser();
       this.notification.success(res.message);
       await this.router.navigateByUrl("/dashboard");
     } catch (err: any) {

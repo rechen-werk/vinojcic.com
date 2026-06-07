@@ -1,6 +1,6 @@
 @if (window.self !== window.top) {
   <router-outlet />
-} @else if (window.location.pathname === '/admin-panel') {
+} @else if (window.location.pathname === '/admin-panel' || window.location.pathname === '/settings') {
   <app-header />
   <div class="application">
     <router-outlet/>

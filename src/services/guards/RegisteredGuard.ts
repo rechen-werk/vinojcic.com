@@ -1,40 +1,19 @@
-import {ActivatedRouteSnapshot, CanActivate, Router} from "@angular/router";
-import {AuthService} from "../auth-service/auth.service";
+import {ActivatedRouteSnapshot, CanActivate, Router, UrlTree} from "@angular/router";
+import {UserService} from "../auth-service/user.service";
 import {Injectable} from "@angular/core";
-import {map, Observable} from "rxjs";
+import {catchError, map, Observable, of, take} from "rxjs";
 
 @Injectable({ providedIn: 'root' })
 export class RegisteredGuard implements CanActivate {
 
-  constructor(private auth: AuthService,
+  constructor(private auth: UserService,
               private router: Router) {}
 
-  canActivate(_route: ActivatedRouteSnapshot): Observable<boolean> {
-    return this.auth.hi().pipe(
-      map(registered => {
-        if (!registered)
-          this.router.navigateByUrl('/login');
-
-        return registered;
-      })
-    )
-  }
-}
-
-@Injectable({ providedIn: 'root' })
-export class UnregisteredGuard implements CanActivate {
-
-  constructor(private auth: AuthService,
-              private router: Router) {}
-
-  canActivate(_route: ActivatedRouteSnapshot): Observable<boolean> {
-    return this.auth.hi().pipe(
-      map(registered => {
-        if (registered)
-          this.router.navigateByUrl('/dashboard');
-
-        return !registered;
-      })
-    )
+  canActivate(_route: ActivatedRouteSnapshot): Observable<boolean | UrlTree> {
+    return this.auth.isUserRegistered().pipe(
+      take(1),
+      map(registered => registered ? true : this.router.parseUrl('/not-found')),
+      catchError(() => of(this.router.parseUrl('/not-found')))
+    );
   }
 }

@@ -10,6 +10,7 @@ import {RoleGuard} from "../services/guards/RoleGuard";
 import {RegisteredGuard} from "../services/guards/RegisteredGuard";
 import {AdminPanel} from "./routes/dashboard/admin-panel/admin-panel";
 import {UUIDGuard} from "../services/guards/UUIDGuard";
+import {Settings} from "./routes/settings/settings";
 
 export const routes: Routes = [
   {path: 'contact', component: ContactComponent},
@@ -18,6 +19,7 @@ export const routes: Routes = [
   {path: 'dashboard', component: DashboardComponent, canActivate: mapToCanActivate([RegisteredGuard])},
 
   {path: 'register/:uuid', component: RegisterComponent, canActivate: mapToCanActivate([UUIDGuard])},
+  {path: 'settings', component: Settings, canActivate: mapToCanActivate([RegisteredGuard])},
 
   // Apps
   {path: 'admin-panel', component: AdminPanel, canActivate: mapToCanActivate([RoleGuard]), data: { roles: [ 'ROLE_ADMIN' ]}},

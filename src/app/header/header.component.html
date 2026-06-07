@@ -5,18 +5,18 @@
       Home
     </button>
     <a class="navbar" [routerLink]="['/contact']">Contact</a>
+    <a class="navbar" [routerLink]="['/login']">Dashboard</a>
   </div>
   <div class="right">
     @if (currentUser != null) {
       <div class="user-menu-wrapper"
            (document:click)="closeUserMenu()"
            (click)="$event.stopPropagation()">
-
         <button (click)="clickOnProfile()" class="user-button">
           <div class="username">
             {{ currentUser.name }}
           </div>
-          <img class="logo" src="assets/favicon/apple-icon-180x180.png" alt="User avatar"/>
+          <img class="profile-picture" [src]="(userService.image$ | async) || 'assets/svgs/default-user.svg'" alt="User avatar"/>
         </button>
 
         @if (isUserMenuOpen) {
@@ -35,7 +35,7 @@
 
             <div class="menu-separator"></div>
 
-            <button class="menu-item" disabled>
+            <button class="menu-item" (click)="onSettings()">
               User Settings
             </button>
             <button class="menu-item" disabled>

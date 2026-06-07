@@ -1,0 +1,51 @@
+<div class="page">
+  <section class="settings-card">
+    <div class="avatar-preferences">
+      <div class="avatar-section">
+        <button class="avatar-button" (click)="triggerProfileImagePicker()" aria-label="Profilbild ändern">
+          <img [src]="profileImagePreview || 'assets/svgs/default-user.svg'" alt="Profile Picture" class="avatar">
+          <span class="avatar-overlay" aria-hidden="true">
+            <span class="avatar-pencil" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                <path
+                  d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25Zm2.92 2.83H5v-.92l9.06-9.06.92.92L5.92 20.08ZM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82Z">
+                </path>
+              </svg>
+            </span>
+          </span>
+        </button>
+        <input #profileImageInput type="file" accept="image/*" (change)="onProfileImageSelected($event)" hidden>
+      </div>
+      <div class="preferences">
+        <label for="language">Language</label>
+        <select id="language" [(ngModel)]="user.language">
+          <option value="EN">English</option>
+          <option value="DE" disabled>Deutsch</option>
+          <option value="HR" disabled>Hrvatski</option>
+        </select>
+        <label for="theme">Theme</label>
+        <select id="theme" [(ngModel)]="user.theme">
+          <option value="LIGHT" disabled>Light</option>
+          <option value="DARK">Dark</option>
+          <option value="SYSTEM" disabled>System</option>
+          <option value="CUSTOM" disabled>Custom</option>
+        </select>
+      </div>
+    </div>
+    <label for="name">Name</label>
+    <input id="name" type="text" [(ngModel)]="user.name">
+    <label for="email">Email</label>
+    <input id="email" type="email" [(ngModel)]="user.email" disabled>
+    <submit-button text="Save Profile" [action]="saveProfileAction"/>
+  </section>
+
+  <section class="settings-card">
+    <label for="currentPassword">Current Password</label>
+    <input id="currentPassword" type="password" [(ngModel)]="password.currentPassword">
+    <label for="newPassword">New Password</label>
+    <input id="newPassword" type="password" [(ngModel)]="password.newPassword">
+    <label for="confirmPassword">Confirm Password</label>
+    <input id="confirmPassword" type="password" [(ngModel)]="password.confirmPassword">
+    <submit-button text="Change Password" [action]="changePasswordAction"/>
+  </section>
+</div>
