@@ -1,9 +1,9 @@
 <div class="container">
   @if (window.self === window.top) {
-    <h2>Could not find the page you are looking for.</h2>
-    <img src="https://http.cat/404" alt="404 not found" >
+    <h2>{{ 'not-found.text' | translate }}</h2>
+    <img src="https://http.cat/404" alt="{{ 'not-found.image-alt' | translate }}" >
   } @else {
-     <h3>Could not find the page you are looking for.</h3>
+     <h3>{{ 'not-found.text' | translate }}</h3>
   }
 </div>
 

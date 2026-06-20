@@ -8,10 +8,11 @@ import {SubmitButton} from "../../components/submit-button/submit-button";
 import {firstValueFrom} from "rxjs";
 import {NotificationService} from "../../components/notifications/NotificationService";
 import {OkStatusMessage} from "../../../model/OkStatusMessage";
+import {TranslatePipe} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule, SubmitButton],
+  imports: [FormsModule, SubmitButton, TranslatePipe],
   templateUrl: 'login.component.html',
   styleUrl: 'login.component.scss'
 })
@@ -34,7 +35,6 @@ export class LoginComponent implements OnInit {
         }, { withCredentials: true })
       );
       this.userService.fetchUser();
-      console.log("from login");
       this.userService.refreshImage();
       await this.router.navigateByUrl("/dashboard");
     } catch (err: any) {

@@ -1,11 +1,11 @@
 <div class="container navbar">
   <div class="left">
     <button (click)="clickOnLogo()">
-      <img class="logo" ngSrc="assets/favicon/apple-icon-180x180.png" alt="AV logo" height="180" width="180"/>
-      Home
+      <img class="logo" ngSrc="assets/favicon/apple-icon-180x180.png" alt="{{ 'header.image-alt-logo' | translate }}" height="180" width="180"/>
+      {{ 'header.home' | translate }}
     </button>
-    <a class="navbar" [routerLink]="['/contact']">Contact</a>
-    <a class="navbar" [routerLink]="['/login']">Dashboard</a>
+    <a class="navbar" [routerLink]="['/contact']">{{ 'header.contact' | translate }}</a>
+    <a class="navbar" [routerLink]="['/login']">{{ 'header.dashboard' | translate }}</a>
   </div>
   <div class="right">
     @if (currentUser != null) {
@@ -16,7 +16,7 @@
           <div class="username">
             {{ currentUser.name }}
           </div>
-          <img class="profile-picture" [src]="(userService.image$ | async) || 'assets/svgs/default-user.svg'" alt="User avatar"/>
+          <img class="profile-picture" [src]="(userService.image$ | async) || 'assets/svgs/default-user.svg'" alt="{{ 'header.image-alt-profile' | translate }}"/>
         </button>
 
         @if (isUserMenuOpen) {
@@ -29,25 +29,24 @@
                 {{ currentUser.email }}
               </div>
               <div class="line roles">
-                Rollen: {{ currentUser.roles.join(', ') }}
+                {{ 'header.roles' | translate }}: {{ currentUser.roles.join(', ') }}
               </div>
             </div>
 
             <div class="menu-separator"></div>
 
             <button class="menu-item" (click)="onSettings()">
-              User Settings
+              {{ 'header.userSettings' | translate }}
             </button>
             <button class="menu-item" disabled>
-              Language
+              {{ 'header.language' | translate }}
             </button>
             <button class="menu-item danger" (click)="onLogout()">
-              Log Out
+              {{ 'header.logout' | translate }}
             </button>
           </div>
         }
       </div>
     }
-
   </div>
 </div>

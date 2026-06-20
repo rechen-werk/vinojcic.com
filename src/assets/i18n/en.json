@@ -1,0 +1,26 @@
+{
+  "header": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "dashboard": "Dashboard",
+    "roles": "Roles",
+    "userSettings": "Settings",
+    "language": "Language",
+    "logout": "Log Out",
+    "image-alt-logo": "AV logo",
+    "image-alt-profile": "Profile Picture"
+  },
+  "footer" : {
+    "social": "Social",
+    "impressum": "Legal Notice",
+    "legal-notice": "All rights reserved."
+  },
+  "not-found": {
+    "text": "Could not find the page you are looking for.",
+    "image-alt": "404 not found"
+  },
+  "login": {
+    "title": "Login"
+  }
+}

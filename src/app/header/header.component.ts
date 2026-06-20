@@ -3,6 +3,7 @@ import {Router, RouterLink} from "@angular/router";
 import {User} from "../../model/User";
 import {AsyncPipe, NgOptimizedImage} from "@angular/common";
 import {UserService} from "../../services/auth-service/user.service";
+import {TranslatePipe} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,8 @@ import {UserService} from "../../services/auth-service/user.service";
   imports: [
     RouterLink,
     NgOptimizedImage,
-    AsyncPipe
+    AsyncPipe,
+    TranslatePipe
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'

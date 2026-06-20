@@ -1,0 +1,26 @@
+{
+  "header": {
+    "home": "Početna",
+    "about": "O nama",
+    "contact": "Kontakt",
+    "dashboard": "Aplikacije",
+    "roles": "Uloge",
+    "userSettings": "Postavke",
+    "language": "Jezik",
+    "logout": "Odjava",
+    "image-alt-logo": "AV logo",
+    "image-alt-profile": "Profilna slika"
+  },
+  "footer" : {
+    "social": "Društvene mreže",
+    "impressum": "Imprint",
+    "legal-notice": "Sva prava pridržana."
+  },
+  "not-found": {
+    "text": "Ova stranica nije pronađena.",
+    "image-alt": "404 not found"
+  },
+  "login": {
+    "title": "Priava"
+  }
+}

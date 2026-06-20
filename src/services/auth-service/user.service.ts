@@ -23,7 +23,6 @@ export class UserService {
     private notification: NotificationService
   ) {
     this.fetchUser();
-    console.log("from user service");
     this.fetchImage();
   }
 
@@ -50,7 +49,6 @@ export class UserService {
   }
 
   fetchImage() {
-    console.log("fetching image");
     if (this.imageLoaded || this.imageLoading) return;
 
     this.imageLoading = true;
@@ -109,15 +107,13 @@ export class UserService {
       const res1 = await firstValueFrom(this.http.post<OkStatusMessage>(`${environment.API_BASE_URL}/auth/update-settings`, user, {withCredentials: true}));
       let res2;
       if (updateImage) {
-        if (!image){
-          this.notification.error("Please select an image");
+        if (!image) {
           return;
         }
         const form = new FormData();
         form.append('file', image!);
 
         res2 = await firstValueFrom(this.http.post<OkStatusMessage>(`${environment.API_BASE_URL}/auth/update-image`, form, { withCredentials: true }));
-        console.log("from updateUserSettings");
         this.refreshImage();
       }
       this.notification.success(res1.message + (res2 ? "\n"+res2.message : ""));

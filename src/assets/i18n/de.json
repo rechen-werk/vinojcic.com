@@ -1,0 +1,26 @@
+{
+  "header": {
+    "home": "Startseite",
+    "about": "Über uns",
+    "contact": "Kontakt",
+    "dashboard": "Dashboard",
+    "roles": "Rollen",
+    "userSettings": "Einstellungen",
+    "language": "Sprache",
+    "logout": "Abmelden",
+    "image-alt-logo": "AV Logo",
+    "image-alt-profile": "Profilbild"
+  },
+  "footer" : {
+    "social": "Soziale Netzwerke",
+    "impressum": "Impressum",
+    "legal-notice": "Alle Rechte vorbehalten."
+  },
+  "not-found": {
+    "text": "Diese Seite konnte nicht gefunden werden.",
+    "image-alt": "404 Nicht gefunden"
+  },
+  "login": {
+    "title": "Login"
+  }
+}

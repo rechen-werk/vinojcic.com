@@ -3,6 +3,8 @@ import {HeaderComponent} from "./header/header.component";
 import {RouterOutlet} from "@angular/router";
 import {FooterComponent} from "./footer/footer.component";
 import {Notification} from "./components/notifications/notification/notification";
+import {TranslateService} from "@ngx-translate/core";
+import {UserService} from "../services/auth-service/user.service";
 
 @Component({
   selector: 'app-root',
@@ -15,4 +17,15 @@ export class AppComponent {
   title = 'vinojcic-com';
 
   protected readonly window = window;
+
+  constructor(
+    private readonly userService: UserService,
+    private readonly translate: TranslateService
+  ) {
+    this.translate.use(this.translate.getBrowserLang() ?? 'en');
+    this.userService.user$.subscribe(cu => {
+      let lang = cu?.language.toLowerCase();
+      this.translate.use(lang ?? 'en');
+    });
+  }
 }
