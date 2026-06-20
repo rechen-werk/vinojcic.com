@@ -76,5 +76,16 @@
     "button": "Pošalji",
     "alternative-method-text": "Ili mi pošalji E-Mail kao u starin danima na"
   },
+  "impressum": {
+    "title": "Imprint",
+    "subtitle": "Objava u skladu s § 25. austrijskog Zakona o medijima",
+    "owner": "Operater web stranice",
+    "address": "Adresa",
+    "copyright": "Autorska prava",
+    "copyright-text": "Sadržaj ove web stranice podliježe raznim pravima intelektualnog vlasništva (npr. autorsko pravo), koliko je to zakonski moguće. Za svako korištenje/distribuciju dostavljenog materijala, koja je zabranjena autorskim pravima, potrebna je pismena suglasnost operatera web stranice.",
+    "disclaimer": "Odricanje",
+    "disclaimer-text-1": "Unatoč pažljivom pregledu sadržaja, operater ove web stranice ne preuzima nikakvu odgovornost za sadržaj vanjskih poveznica. Operateri povezanih web stranica isključivo su odgovorni za njihov sadržaj. Ako ipak postanete svjesni bilo kakvih odlaznih poveznica koje vode na web stranicu s ilegalnim aktivnostima/informacijama, molimo vas da nas obavijestite kako bismo ih mogli odmah ukloniti.",
+    "disclaimer-text-2": "Operater ove web stranice ulaže najveću brigu u poštivanje autorskih prava trećih strana. Ako ipak postanete svjesni kršenja autorskih prava, molimo vas da nas o tome obavijestite. Nakon obavijesti o takvim kršenjima, odmah ćemo ukloniti dotični sadržaj."
+  },
   "letters": "č ć đ š ž Č Ć Đ Š Ž"
 }

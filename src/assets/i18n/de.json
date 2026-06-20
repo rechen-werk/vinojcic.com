@@ -75,5 +75,16 @@
     "message": "Hallo Adrian, ...",
     "button": "Abschicken",
     "alternative-method-text": "Oder schick mir eine E-Mail wie in den alten Tagen an"
+  },
+  "impressum": {
+    "title": "Impressum",
+    "subtitle": "Offenlegung gemäß § 25 MedienG",
+    "owner": "Webseitenbetreiber",
+    "address": "Anschrift",
+    "copyright": "Urheberrecht",
+    "copyright-text": "Die Inhalte dieser Webseite unterliegen, soweit dies rechtlich möglich ist, diversen Schutzrechten (z.B dem Urheberrecht). Jegliche Verwendung/Verbreitung von bereitgestelltem Material, welche urheberrechtlich untersagt ist, bedarf schriftlicher Zustimmung des Webseitenbetreibers.",
+    "disclaimer": "Haftungsausschluss",
+    "disclaimer-text-1": "Trotz sorgfältiger inhaltlicher Kontrolle übernimmt der Webseitenbetreiber dieser Webseite keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich. Sollten Sie dennoch auf ausgehende Links aufmerksam werden, welche auf eine Webseite mit rechtswidriger Tätigkeit/Information verweisen, ersuchen wir um dementsprechenden Hinweis, um diese umgehend zu entfernen.",
+    "disclaimer-text-2": "Die Urheberrechte Dritter werden vom Betreiber dieser Webseite mit größter Sorgfalt beachtet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden derartiger Rechtsverletzungen werden wir den betroffenen Inhalt umgehend entfernen."
   }
 }

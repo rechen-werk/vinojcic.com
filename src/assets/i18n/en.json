@@ -75,5 +75,16 @@
     "message": "Hello Adrian, ...",
     "button": "Submit",
     "alternative-method-text": "Or send me an E-mail like in the old days to"
+  },
+  "impressum": {
+    "title": "Legal Notice",
+    "subtitle": "Disclosure pursuant to § 25 of the Austrian Media Act",
+    "owner": "Website operator",
+    "address": "Address",
+    "copyright": "Copyright",
+    "copyright-text": "The content of this website is subject to various intellectual property rights (e.g., copyright) to the extent legally permissible. Any use or distribution of provided material that is prohibited by copyright law requires the written consent of the website operator.",
+    "disclaimer": "Disclaimer",
+    "disclaimer-text-1": "Despite careful review of the content, the operator of this website assumes no liability for the content of external links. The operators of the linked websites are solely responsible for their content. Should you nevertheless become aware of any outgoing links that lead to a website with illegal activity/information, please inform us so that we can remove them immediately.",
+    "disclaimer-text-2": "The operator of this website takes the utmost care to respect the copyrights of third parties. Should you nevertheless become aware of a copyright infringement, please inform us accordingly. Upon notification of such infringements, we will remove the affected content immediately."
   }
 }
