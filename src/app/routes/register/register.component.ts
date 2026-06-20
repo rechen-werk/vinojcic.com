@@ -8,10 +8,11 @@ import {SubmitButton} from "../../components/submit-button/submit-button";
 import {firstValueFrom} from "rxjs";
 import {NotificationService} from "../../components/notifications/NotificationService";
 import {OkStatusMessage} from "../../../model/OkStatusMessage";
+import {TranslatePipe} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-register',
-  imports: [FormsModule, SubmitButton],
+  imports: [FormsModule, SubmitButton, TranslatePipe],
   templateUrl: 'register.component.html',
   styleUrl: 'register.component.scss'
 })

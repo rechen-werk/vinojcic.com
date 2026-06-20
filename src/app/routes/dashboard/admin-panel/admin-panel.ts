@@ -8,10 +8,11 @@ import { NotificationService } from "../../../components/notifications/Notificat
 import { Role } from "../../../../model/Role";
 import {OkStatusMessage} from "../../../../model/OkStatusMessage";
 import {NgClass} from "@angular/common";
+import {TranslatePipe} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-admin-panel',
-  imports: [FormsModule, SubmitButton, NgClass],
+  imports: [FormsModule, SubmitButton, NgClass, TranslatePipe],
   templateUrl: './admin-panel.html',
   styleUrl: './admin-panel.scss',
 })

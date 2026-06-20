@@ -5,11 +5,13 @@ import {environment} from "../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {UserService} from "../../../services/auth-service/user.service";
 import {Router} from "@angular/router";
+import {TranslatePipe} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-dashboard',
   imports: [
     Widget,
+    TranslatePipe,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'

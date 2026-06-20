@@ -2,8 +2,8 @@
   <section class="settings-card">
     <div class="avatar-preferences">
       <div class="avatar-section">
-        <button class="avatar-button" (click)="triggerProfileImagePicker()" aria-label="Profilbild ändern">
-          <img [src]="profileImagePreview || 'assets/svgs/default-user.svg'" alt="Profile Picture" class="avatar">
+        <button class="avatar-button" (click)="triggerProfileImagePicker()" aria-label="{{ 'settings.change-picture' | translate }}">
+          <img [src]="profileImagePreview || 'assets/svgs/default-user.svg'" alt="{{ 'base.image-alt-profile' | translate }}" class="avatar">
           <span class="avatar-overlay" aria-hidden="true">
             <span class="avatar-pencil" aria-hidden="true">
               <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
@@ -17,35 +17,35 @@
         <input #profileImageInput type="file" accept="image/*" (change)="onProfileImageSelected($event)" hidden>
       </div>
       <div class="preferences">
-        <label for="language">Language</label>
+        <label for="language">{{ 'base.language' | translate }}</label>
         <select id="language" [(ngModel)]="user.language">
           <option value="EN">English</option>
           <option value="DE">Deutsch</option>
           <option value="HR">Hrvatski</option>
         </select>
-        <label for="theme">Theme</label>
+        <label for="theme">{{ 'settings.theme' | translate }}</label>
         <select id="theme" [(ngModel)]="user.theme">
-          <option value="LIGHT" disabled>Light</option>
-          <option value="DARK">Dark</option>
-          <option value="SYSTEM" disabled>System</option>
-          <option value="CUSTOM" disabled>Custom</option>
+          <option value="LIGHT" disabled>{{ 'settings.light' | translate }}</option>
+          <option value="DARK">{{ 'settings.dark' | translate }}</option>
+          <option value="SYSTEM" disabled>{{ 'settings.system' | translate }}</option>
+          <option value="CUSTOM" disabled>{{ 'settings.custom' | translate }}</option>
         </select>
       </div>
     </div>
-    <label for="name">Name</label>
+    <label for="name">{{ 'base.name' | translate }}</label>
     <input id="name" type="text" [(ngModel)]="user.name">
-    <label for="email">Email</label>
+    <label for="email">{{ 'base.email' | translate }}</label>
     <input id="email" type="email" [(ngModel)]="user.email" disabled>
-    <submit-button text="Save Profile" [action]="saveProfileAction"/>
+    <submit-button text="{{ 'settings.save-profile' | translate }}" [action]="saveProfileAction"/>
   </section>
 
   <section class="settings-card">
-    <label for="currentPassword">Current Password</label>
+    <label for="currentPassword">{{ 'settings.current-password' | translate }}</label>
     <input id="currentPassword" type="password" [(ngModel)]="password.currentPassword">
-    <label for="newPassword">New Password</label>
+    <label for="newPassword">{{ 'settings.new-password' | translate }}</label>
     <input id="newPassword" type="password" [(ngModel)]="password.newPassword">
-    <label for="confirmPassword">Confirm Password</label>
+    <label for="confirmPassword">{{ 'settings.confirm-password' | translate }}</label>
     <input id="confirmPassword" type="password" [(ngModel)]="password.confirmPassword">
-    <submit-button text="Change Password" [action]="changePasswordAction"/>
+    <submit-button text="{{ 'settings.change-password' | translate }}" [action]="changePasswordAction"/>
   </section>
 </div>

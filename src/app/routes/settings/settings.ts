@@ -4,12 +4,14 @@ import {FormsModule} from "@angular/forms";
 import {User} from "../../../model/User";
 import {UserService} from "../../../services/auth-service/user.service";
 import {NotificationService} from "../../components/notifications/NotificationService";
+import {translate, TranslatePipe, TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'settings',
   imports: [
     SubmitButton,
-    FormsModule
+    FormsModule,
+    TranslatePipe
   ],
   templateUrl: './settings.html',
   styleUrl: './settings.scss',
@@ -30,7 +32,8 @@ export class Settings {
 
   constructor(
     private userService: UserService,
-    private notification: NotificationService
+    private notification: NotificationService,
+    private translate: TranslateService
   ) {
     userService.user$.subscribe(user => user && (this.user = { ...user}))
     userService.image$.subscribe(image => image && (this.profileImagePreview = image))
@@ -62,7 +65,7 @@ export class Settings {
 
   changePasswordAction = async () => {
     if (this.password.newPassword !== this.password.confirmPassword) {
-      this.notification.info("Passwords do not match");
+      this.notification.info(this.translate.instant('settings.passwords-no-match'));
       return;
     }
     await this.userService.updatePassword(this.password.currentPassword, this.password.newPassword)

@@ -1,4 +1,13 @@
 {
+  "base": {
+    "username": "Korisničko ime",
+    "password": "Lozinka",
+    "delete": "Izbrisati",
+    "language": "Jezik",
+    "image-alt-profile": "Profilna slika",
+    "email": "E-Mail",
+    "name": "Ime"
+  },
   "header": {
     "home": "Početna",
     "about": "O nama",
@@ -6,10 +15,8 @@
     "dashboard": "Aplikacije",
     "roles": "Uloge",
     "userSettings": "Postavke",
-    "language": "Jezik",
     "logout": "Odjava",
-    "image-alt-logo": "AV logo",
-    "image-alt-profile": "Profilna slika"
+    "image-alt-logo": "AV logo"
   },
   "footer" : {
     "social": "Društvene mreže",
@@ -21,6 +28,53 @@
     "image-alt": "404 not found"
   },
   "login": {
-    "title": "Priava"
-  }
+    "title": "Priava",
+    "button": "Priava"
+  },
+  "register": {
+    "hello": "Dobrodošli",
+    "button": "Registriraj se",
+    "repeat-password": "Ponovi lozinku"
+  },
+  "dashboard": {
+    "no-apps-message": "Kontaktiraj me za otključavanje aplikacija."
+  },
+  "admin-panel": {
+    "users": "Koristnike",
+    "mustermann": "Marko Marković",
+    "mustermail": "marko.markovic@primjer.hr",
+    "invite": "Posovni korisnika",
+    "roles": "Uloge",
+    "new-role-name": "Oznaka nove uloge",
+    "create-role": "Stvori ulogu"
+  },
+  "settings": {
+    "passwords-no-match": "Lozinke nisu skladne.",
+    "change-picture": "Prominite profilnu sliku",
+    "theme": "Šema boja",
+    "light": "Svjetlo",
+    "dark": "Tamno",
+    "system": "Sistem",
+    "custom": "Prilagođeno",
+    "save-profile": "Uštedi profil",
+    "current-password": "Trenutna lozinka",
+    "new-password": "Nova lozinka",
+    "confirm-password": "Potvrdite lozinku",
+    "change-password": "Prominite lozinku"
+  },
+  "contact": {
+    "success-message": "Hvala za poruku! Javit ću se uskoro.",
+    "error-message": "Ups, dogodila je se greška. Pokušaj ponovno kasnije.",
+    "contact-me": "Kontakt",
+    "prompt": "Slobodno se javi!",
+    "name-label": "Tko pita",
+    "email-label": "Gdje mogu odgovoriti",
+    "subject-label": "Kratak sažetak poruke",
+    "subject": "Predmet",
+    "message-label": "Šta mi želiš reći",
+    "message": "Bog Adriane, ...",
+    "button": "Pošalji",
+    "alternative-method-text": "Ili mi pošalji E-Mail kao u starin danima na"
+  },
+  "letters": "č ć đ š ž Č Ć Đ Š Ž"
 }

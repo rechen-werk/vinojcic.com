@@ -1,4 +1,13 @@
 {
+  "base": {
+    "username": "Benutzername",
+    "password": "Passwort",
+    "delete": "Löschen",
+    "language": "Sprache",
+    "image-alt-profile": "Profilbild",
+    "email": "E-Mail",
+    "name": "Name"
+  },
   "header": {
     "home": "Startseite",
     "about": "Über uns",
@@ -6,10 +15,8 @@
     "dashboard": "Dashboard",
     "roles": "Rollen",
     "userSettings": "Einstellungen",
-    "language": "Sprache",
     "logout": "Abmelden",
-    "image-alt-logo": "AV Logo",
-    "image-alt-profile": "Profilbild"
+    "image-alt-logo": "AV Logo"
   },
   "footer" : {
     "social": "Soziale Netzwerke",
@@ -21,6 +28,52 @@
     "image-alt": "404 Nicht gefunden"
   },
   "login": {
-    "title": "Login"
+    "title": "Login",
+    "button": "Log in"
+  },
+  "register": {
+    "hello": "Hallo",
+    "button": "Registrieren",
+    "repeat-password": "Passwort wiederholen"
+  },
+  "dashboard": {
+    "no-apps-message": "Kontaktiere mich um Applikationen freizuschalten."
+  },
+  "admin-panel": {
+    "users": "Benutzer",
+    "mustermann": "Max Mustermann",
+    "mustermail": "max.mustermann@beispiel.at",
+    "invite": "Benutzer einladen",
+    "roles": "Rollen",
+    "new-role-name": "Neue Rollenbezeichnung",
+    "create-role": "Rolle erstellen"
+  },
+  "settings": {
+    "passwords-no-match": "Passwörter stimmen nicht überein.",
+    "change-picture": "Profilbild ändern",
+    "theme": "Farbschema",
+    "light": "Hell",
+    "dark": "Dunkel",
+    "system": "System",
+    "custom": "Individuell",
+    "save-profile": "Profil speichern",
+    "current-password": "Aktuelles Passwort",
+    "new-password": "Neues Passwort",
+    "confirm-password": "Passwort bestätigen",
+    "change-password": "Passwort ändern"
+  },
+  "contact": {
+    "success-message": "Danke für deine Nachricht! Ich melde mich in kürze.",
+    "error-message": "Ups, etwas ist schief gelaufen. Versuche es später erneut.",
+    "contact-me": "Kontakt",
+    "prompt": "Melde dich gerne!",
+    "name-label": "Wer fragt",
+    "email-label": "Wo kann ich mich melden",
+    "subject-label": "Kurze Zusammenfassung deiner Nachricht",
+    "subject": "Betreff",
+    "message-label": "Was du mir sagen willst",
+    "message": "Hallo Adrian, ...",
+    "button": "Abschicken",
+    "alternative-method-text": "Oder schick mir eine E-Mail wie in den alten Tagen an"
   }
 }

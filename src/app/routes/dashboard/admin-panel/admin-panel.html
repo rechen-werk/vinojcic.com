@@ -1,9 +1,9 @@
 <div class="panel users-panel">
-  <h2>Users</h2>
+  <h2>{{ 'admin-panel.users' | translate }}</h2>
   <form class="invite-form" #inviteForm="ngForm">
-    <input type="text" id="name" name="name" placeholder="Max Mustermann" ngModel required>
-    <input type="email" id="invite-email" name="email" placeholder="max.mustermann@mail.com" ngModel required>
-    <submit-button text="Invite User" [action]="inviteUserAction"/>
+    <input type="text" id="name" name="name" placeholder="{{ 'admin-panel.mustermann' | translate }}" ngModel required>
+    <input type="email" id="invite-email" name="email" placeholder="{{ 'admin-panel.mustermail' | translate }}" ngModel required>
+    <submit-button text="{{ 'admin-panel.invite' | translate }}" [action]="inviteUserAction"/>
   </form>
   @if (invitedUsers.length > 0) {
     <div class="list invite-list">
@@ -28,7 +28,7 @@
             <button
               class="danger-btn"
               (click)="deleteUser($event, user.username)">
-              Delete
+              {{ 'base.delete' | translate }}
             </button>
           </summary>
           <div class="roles">
@@ -44,10 +44,10 @@
     </div>
 </div>
 <div class="panel roles-panel">
-  <h2>Roles</h2>
+  <h2>{{ 'admin-panel.roles' | translate }}</h2>
   <form class="create-role-form">
-    <input type="text" [(ngModel)]="newRoleName" name="newRole" placeholder="New role name" required>
-    <submit-button text="Create Role" [action]="createRoleAction"/>
+    <input type="text" [(ngModel)]="newRoleName" name="newRole" placeholder="{{ 'admin-panel.new-role-name' | translate }}" required>
+    <submit-button text="{{ 'admin-panel.create-role' | translate }}" [action]="createRoleAction"/>
   </form>
   <div class="list">
     @for (role of roles; track role) {

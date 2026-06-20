@@ -1,16 +1,16 @@
 <div class="page">
-  <h1>Contact Me</h1>
-  <p>Feel free to get in touch!</p>
+  <h1>{{ 'contact.contact-me' | translate }}</h1>
+  <p>{{ 'contact.prompt' | translate }}</p>
   <form #contactForm="ngForm">
-    <label for="name">Who is asking: </label>
-    <input type="text" id="name" name="name" placeholder="Name" ngModel required>
-    <label for="email">Where I may reply to: </label>
-    <input type="email" id="email" name="email" placeholder="E-Mail" ngModel required>
-    <label for="subject">Short summary of your message:</label>
+    <label for="name">{{ 'contact.name-label' | translate }}: </label>
+    <input type="text" id="name" name="name" placeholder="{{ 'base.name' | translate }}" ngModel required>
+    <label for="email">{{ 'contact.email-label' | translate }}: </label>
+    <input type="email" id="email" name="email" placeholder="{{ 'base.email' | translate }}" ngModel required>
+    <label for="subject">{{ 'contact.subject-label' | translate }}:</label>
     <input type="text" id="subject" name="subject" placeholder="Subject" ngModel>
-    <label for="message">What you want to tell me:</label>
+    <label for="message">{{ 'contact.message-label' | translate }}:</label>
     <textarea id="message" name="message" placeholder="Hello Adrian, ..." ngModel required></textarea>
-    <submit-button text="Submit" [action]="sendAction"/>
+    <submit-button text="{{ 'contact.button' | translate }}" [action]="sendAction"/>
   </form>
-  <p>Or, send me an E-mail like in the old days to <a href="mailto:adrian.vinojcic@gmail.com">adrian.vinojcic&#64;gmail.com</a>.</p>
+  <p>{{ 'contact.alternative-method-text' | translate }} <a href="mailto:adrian.vinojcic@gmail.com">adrian.vinojcic&#64;gmail.com</a>.</p>
 </div>

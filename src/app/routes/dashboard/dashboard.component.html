@@ -1,7 +1,5 @@
 @for (widget of widgets; track widget.name) {
   <widget [widget]="widget" />
 } @empty {
-  <p>
-    Contact me to be unlocked for applications.
-  </p>
+  <p>{{ 'dashboard.no-apps-message' | translate }}</p>
 }

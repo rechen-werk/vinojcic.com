@@ -16,7 +16,7 @@
           <div class="username">
             {{ currentUser.name }}
           </div>
-          <img class="profile-picture" [src]="(userService.image$ | async) || 'assets/svgs/default-user.svg'" alt="{{ 'header.image-alt-profile' | translate }}"/>
+          <img class="profile-picture" [src]="(userService.image$ | async) || 'assets/svgs/default-user.svg'" alt="{{ 'base.image-alt-profile' | translate }}"/>
         </button>
 
         @if (isUserMenuOpen) {
@@ -39,7 +39,7 @@
               {{ 'header.userSettings' | translate }}
             </button>
             <button class="menu-item" disabled>
-              {{ 'header.language' | translate }}
+              {{ 'base.language' | translate }}
             </button>
             <button class="menu-item danger" (click)="onLogout()">
               {{ 'header.logout' | translate }}
