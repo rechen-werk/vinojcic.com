@@ -77,13 +77,15 @@
   position: absolute;
   inset: 0;
   border-radius: 25%;
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
   opacity: 0;
   transition: opacity 140ms ease;
 }
 
-.avatar-pencil {
+.avatar-pencil, .avatar-trash {
   width: 44px;
   height: 44px;
   border-radius: 12px;
@@ -91,12 +93,16 @@
   place-items: center;
   background: rgba(0,0,0,.45);
   border: 1px solid rgba(255,255,255,.25);
-}
 
-.avatar-pencil svg {
-  width: 24px;
-  height: 24px;
-  fill: rgba(255,255,255,.9);
+  svg {
+    width: 24px;
+    height: 24px;
+    fill: rgba(255,255,255,.9);
+  }
+
+  &:hover {
+    background: rgba(0,0,0,.65);
+  }
 }
 
 .avatar-button:hover .avatar-overlay {

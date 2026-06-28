@@ -107,13 +107,14 @@ export class UserService {
       const res1 = await firstValueFrom(this.http.post<OkStatusMessage>(`${environment.API_BASE_URL}/auth/update-settings`, user, {withCredentials: true}));
       let res2;
       if (updateImage) {
-        if (!image) {
-          return;
-        }
-        const form = new FormData();
-        form.append('file', image!);
+        if (image) {
+          const form = new FormData();
+          form.append('file', image!);
 
-        res2 = await firstValueFrom(this.http.post<OkStatusMessage>(`${environment.API_BASE_URL}/auth/update-image`, form, { withCredentials: true }));
+          res2 = await firstValueFrom(this.http.post<OkStatusMessage>(`${environment.API_BASE_URL}/auth/update-image`, form, { withCredentials: true }));
+        } else {
+          res2 = await firstValueFrom(this.http.delete<OkStatusMessage>(`${environment.API_BASE_URL}/auth/image`, { withCredentials: true }));
+        }
         this.refreshImage();
       }
       this.notification.success(res1.message + (res2 ? "\n"+res2.message : ""));

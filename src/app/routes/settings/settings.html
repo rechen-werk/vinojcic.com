@@ -2,16 +2,25 @@
   <section class="settings-card">
     <div class="avatar-preferences">
       <div class="avatar-section">
-        <button class="avatar-button" (click)="triggerProfileImagePicker()" aria-label="{{ 'settings.change-picture' | translate }}">
+        <button class="avatar-button" aria-label="{{ 'settings.change-picture' | translate }}">
           <img [src]="profileImagePreview || 'assets/svgs/default-user.svg'" alt="{{ 'base.image-alt-profile' | translate }}" class="avatar">
           <span class="avatar-overlay" aria-hidden="true">
-            <span class="avatar-pencil" aria-hidden="true">
+            <span class="avatar-pencil" aria-hidden="true" (click)="triggerProfileImagePicker()">
               <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
                 <path
                   d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25Zm2.92 2.83H5v-.92l9.06-9.06.92.92L5.92 20.08ZM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82Z">
                 </path>
               </svg>
             </span>
+            @if (profileImagePreview) {
+              <span class="avatar-trash" aria-hidden="true" (click)="triggerDeleteProfilePicture()">
+                <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                  <path
+                    d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12ZM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4Z">
+                  </path>
+                </svg>
+              </span>
+            }
           </span>
         </button>
         <input #profileImageInput type="file" accept="image/*" (change)="onProfileImageSelected($event)" hidden>

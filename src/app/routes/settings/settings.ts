@@ -4,7 +4,7 @@ import {FormsModule} from "@angular/forms";
 import {User} from "../../../model/User";
 import {UserService} from "../../../services/auth-service/user.service";
 import {NotificationService} from "../../components/notifications/NotificationService";
-import {translate, TranslatePipe, TranslateService} from "@ngx-translate/core";
+import {TranslatePipe, TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'settings',
@@ -27,7 +27,7 @@ export class Settings {
   @ViewChild('profileImageInput')
   private profileImageInput?: ElementRef<HTMLInputElement>;
   profileImageFile?: File;
-  profileImagePreview?: string;
+  profileImagePreview: string | null = null;
   private profileImageUpdated = false;
 
   constructor(
@@ -36,11 +36,17 @@ export class Settings {
     private translate: TranslateService
   ) {
     userService.user$.subscribe(user => user && (this.user = { ...user}))
-    userService.image$.subscribe(image => image && (this.profileImagePreview = image))
+    userService.image$.subscribe(image => (this.profileImagePreview = image))
   }
 
   triggerProfileImagePicker(): void {
     this.profileImageInput?.nativeElement.click();
+  }
+
+  async triggerDeleteProfilePicture(): Promise<void> {
+    this.profileImagePreview = null;
+    this.profileImageFile = undefined;
+    this.profileImageUpdated = true;
   }
 
   onProfileImageSelected(event: Event) {
@@ -57,6 +63,7 @@ export class Settings {
     };
     reader.readAsDataURL(file);
     this.profileImageUpdated = true;
+    input.files = null;
   }
 
   saveProfileAction = async () => {
