@@ -8,11 +8,27 @@
     <a class="navbar" [routerLink]="['/login']">{{ 'header.dashboard' | translate }}</a>
   </div>
   <div class="right">
-    @if (currentUser != null) {
+    @if (currentUser == null) {
+      <div class="user-menu-wrapper" (document:click)="closeUserMenu()" (click)="$event.stopPropagation()">
+        <button (click)="toggleUserManu()" class="user-button" style="border: 1px solid lightgray;">
+          <img src="assets/lang-img/{{loggedOutLanguage}}.png" alt="{{loggedOutLanguage}}.png" class="lang-flag" height="30" width="45">
+        </button>
+        @if (isUserMenuOpen) {
+          <div class="user-dropdown">
+            @for (lang of [{lang: 'EN', name: 'English'}, {lang: 'DE', name: 'Deutsch'}, {lang: 'HR', name: 'Hrvatski'}]; track lang.lang) {
+              <button class="menu-item" role="radio" [attr.aria-checked]="loggedOutLanguage === lang.lang" [class.selected]="loggedOutLanguage === lang.lang" (click)="setLanguage(lang.lang)">
+                <img src="/assets/lang-img/{{lang.lang}}.png" alt="{{lang.name}}" height="30" width="45">
+                <span class="lang-text">{{ lang.name }}</span>
+              </button>
+            }
+          </div>
+        }
+      </div>
+    } @else {
       <div class="user-menu-wrapper"
            (document:click)="closeUserMenu()"
            (click)="$event.stopPropagation()">
-        <button (click)="clickOnProfile()" class="user-button">
+        <button (click)="toggleUserManu()" class="user-button">
           <div class="username">
             {{ currentUser.name }}
           </div>

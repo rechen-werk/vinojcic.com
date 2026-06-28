@@ -22,7 +22,7 @@ export class AppComponent {
     private readonly userService: UserService,
     private readonly translate: TranslateService
   ) {
-    let browserLang = this.translate.getBrowserLang();
+    let browserLang = localStorage.getItem('lang') ?? this.translate.getBrowserLang();
     if (!browserLang || !['en', 'de', 'hr'].includes(browserLang)) {
       browserLang = 'en';
     }

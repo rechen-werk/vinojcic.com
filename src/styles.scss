@@ -188,6 +188,16 @@ $xl-screen: 1200px;
   h4 {
     font-size: 18px;
   }
+
+  select {
+    width: 100%;
+    background: black;
+    color: white;
+    border: 2px solid white;
+    padding: 10px 20px;
+    font-size: 24px;
+  }
+
   .page {
     max-width: 70%;
     width: 700px;
