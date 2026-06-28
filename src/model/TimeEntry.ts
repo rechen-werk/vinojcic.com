@@ -1,6 +1,9 @@
 export interface TimeEntry {
-  title: string;
-  subtitle: string;
-  time: string;
-  text: string;
+  titleKey: string;
+  subtitleKey: string;
+  monthFrom?: number
+  yearFrom?: number;
+  monthTo?: number;
+  yearTo?: number;
+  textKey: string;
 }

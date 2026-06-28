@@ -1,3 +1,44 @@
-<h4 class="title">{{entry.title}} <span class="secondary normal">{{entry.subtitle}}</span></h4>
-<div class="time secondary">{{entry.time}}</div>
-<p class="description" [innerHTML]="entry.text"></p>
+<h4 class="title">{{entry.titleKey | translate}} <span class="secondary normal">({{entry.subtitleKey | translate}})</span></h4>
+<div class="time secondary">
+    @if (entry.yearFrom) {
+      @if (entry.yearTo) {
+        @if(entry.yearFrom === entry.yearTo) {
+          @if (entry.monthFrom === entry.monthTo) {
+            {{ "time.my" | translate:{
+              month: ('time.month.' + (entry.monthFrom ?? 1)) | translate,
+              year: entry.yearFrom }
+            }}
+          } @else {
+            {{ "time.mmy" | translate:{
+              month1: ('time.month.' + (entry.monthFrom ?? 1)) | translate,
+              month2: ('time.month.' + (entry.monthTo ?? 1)) | translate,
+              year: entry.yearFrom }
+            }}
+          }
+        } @else {
+          {{ "time.mymy" | translate:{
+            month1: ('time.month.' + (entry.monthFrom ?? 1)) | translate,
+            month2: ('time.month.' + (entry.monthTo ?? 1)) | translate,
+            year1: entry.yearFrom,
+            year2: entry.yearTo }
+          }}
+        }
+      } @else {
+        {{ "time.sincemy" | translate:{
+          month: ('time.month-genitive.' + (entry.monthFrom ?? 1)) | translate,
+          year: entry.yearFrom}
+        }}
+      }
+    } @else {
+      @if (entry.yearTo) {
+        {{ "time.untilmy" | translate:{
+          month: ('time.month-genitive.' + (entry.monthTo ?? 1)) | translate,
+          year: entry.yearTo}
+        }}
+      } @else {
+        {{ "time.always" | translate }}
+      }
+    }
+
+</div>
+<p class="description" [innerHTML]="entry.textKey | translate"></p>

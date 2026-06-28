@@ -7,9 +7,9 @@
     <label for="email">{{ 'contact.email-label' | translate }}: </label>
     <input type="email" id="email" name="email" placeholder="{{ 'base.email' | translate }}" ngModel required>
     <label for="subject">{{ 'contact.subject-label' | translate }}:</label>
-    <input type="text" id="subject" name="subject" placeholder="Subject" ngModel>
+    <input type="text" id="subject" name="subject" placeholder="{{ 'contact.subject' | translate }}" ngModel>
     <label for="message">{{ 'contact.message-label' | translate }}:</label>
-    <textarea id="message" name="message" placeholder="Hello Adrian, ..." ngModel required></textarea>
+    <textarea id="message" name="message" placeholder="{{ 'contact.message' | translate }}" ngModel required></textarea>
     <submit-button text="{{ 'contact.button' | translate }}" [action]="sendAction"/>
   </form>
   <p>{{ 'contact.alternative-method-text' | translate }} <a href="mailto:adrian.vinojcic@gmail.com">adrian.vinojcic&#64;gmail.com</a>.</p>

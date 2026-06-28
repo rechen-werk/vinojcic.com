@@ -40,12 +40,13 @@
     "no-apps-message": "Kontaktiraj me za otključavanje aplikacija."
   },
   "admin-panel": {
-    "users": "Koristnike",
+    "users": "Korisnici",
     "mustermann": "Marko Marković",
     "mustermail": "marko.markovic@primjer.hr",
     "invite": "Posovni korisnika",
     "roles": "Uloge",
     "new-role-name": "Oznaka nove uloge",
+
     "create-role": "Stvori ulogu"
   },
   "settings": {
@@ -89,27 +90,85 @@
   },
   "home": {
     "about": "O meni",
-    "paragraph1": "Hi! Ja sam Adrian, iman {{ age }} godina i jako me zanima računalna znanost, s velikom strašću za backend razvoj i rastućim interesom za frontend tehnologije. Tijekom zadnjih godina razvio sam svoje vještine u raznim programskim jezicima, uključujući Kotlin, C# i Javu. Radim u RZL Softwareu nakon završetka Mastera u travnju 2025. U slobodnom vrijemeu volim raditi na sporednim projektima poput ove web stranice.",
-    "paragraph2": "Ova web stranica je mjesto gdje želim prezentirati projekte, podijeliti svoje putovanje i povezati se s drugima. Moram vas upozoriti da sam u tijeku izrade ove web stranice, jer na njoj mogu raditi samo u slobodnom vrijemenu.",
-    "paragraph3": "Osim kodiranja, aktivan sam kao vatrogasac u svom selu i pokušavan biti aktivan kroz odbojku i biciklizam.",
+    "paragraph1": "Pozdrav! Ja sam Adrian, iman {{ age }} godina i jako me zanima računarstvo, s velikom strašću za backend razvoj i rastućim interesom za frontend tehnologije. Tijekom zadnjih godina, razvio sam svoje sposobnosti u raznim programskim jezicima, uključujući Kotlin, C# i Javu. Radim u RZL Softwareu. Diplomirao sam u travnju 2025. U slobodno vrijeme radim na sporednim projektima kao što je i ova web stranica.",
+    "paragraph2": "Ova web stranica je prostor gdje želim predstraviti projekte, podijeliti svoje iskustvo i povezati se s drugima.",
+    "paragraph3": "U slobodnom vrijemenu sam dobrovoljni vatrogasac i aktivan sam kroz odbojku i biciklizam.",
     "work": "Posao",
     "download-cv": "Preuzmi životopis",
     "education": "Obrazovanje",
-    "thesis-and-papers": "Teze i radovi"
+    "thesis-and-papers": "Teze i radovi",
+    "dev": "Programer",
+    "intern": "Pripravnik",
+    "tutor": "Tutor",
+    "part-time": "Nepuno radno vrijeme",
+    "master": "Magisterij računalnih znanosti",
+    "bachelor": "Prvostupnik računalnih znanosti",
+    "matura": "Diploma srednje škole",
+    "issw": "Institut za sistemski softver",
+    "jku": "JKU Linz",
+    "borg": "BORG Ried im Innkreis",
+    "rzl": "RZL Software",
+    "naschmax": "Naschmax",
+    "fabasoft": "Fabasoft",
+    "timeline-texts": {
+      "rzl": "Nakon vremena provedenog u <a href=\"https://de.wikipedia.org/wiki/Linz\" target=\"_blank\">Linzu</a>, gdje sam studirao računarstvo, vratio sam se u svoj rodni grad i sretan sam što sam se ponovno pridružio <a href=\"https://rzlsoftware.at/\" target=\"_blank\">RZL</a>-u kao softverski programer. Ovdje radim s kompetentnim timom na sljedećoj generaciji RZL ploče u .NET-u i WPF-u.",
+      "fabasoft": "U veljači 2025. godine započeo sam svoj prvi pravi posao kao softverski programer u <a href=\"https://www.fabasoft.com/en\">Fabasoftu</a>. Moj zadatak bio je dalje razvijati istoimeni interni alat unutar tima za odnose s javnošću. U toj tvrtki naučio sam njihov vlasnički programski jezik, app.ducx, koji se koristi za razvoj njihove usluge u cloudu.",
+      "dynatrace-intern": "Moja druga (i zadnja) praksa bila je u <a href=\"https://www.dynatrace.com/\" target=\"_blank\">Dynatraceu</a>. Dynatrace je velika međunarodna tvrtka s korijenima u <a href=\"https://de.wikipedia.org/wiki/Linz\" target=\"_blank\">Linzu</a>, gdje sam također obavio praksu. Surađivao sam s timom za Cloud Access Engineering i dobio sam zadatak da razvijem prototip za poboljšanje njihovog procesa revizije dozvola kako bi ostali <a href=\"https://de.wikipedia.org/wiki/Sarbanes-Oxley_Act\" target=\"_blank\">usklađeni sa SOX-om</a>-om. Moje ključne stvari iz rada u ovoj tvrtki bile su prijateljski tim, agilni Scrum tijek rada na radnom mjestu i poboljšanja mojih Spring i Kotlin vještina. Negativan i vjerojatno inherentan uvid je vrijeme potrebno za obavljanje stvari kada se radi u tvrtki.",
+      "rzl-intern": "Moja prva praksa bila je u <a href=\"https://rzlsoftware.at/\" target=\"_blank\">RZL-u</a>, tvrtki srednje veličine u srcu <a href=\"https://de.wikipedia.org/wiki/Innviertel\" target=\"_blank\">Innviertela</a>. U RZL-u sam mogao raditi na internom alatu koji distribuira softver na njihove servere. Ljudi tamo su vrlo ljubazni, a moj mentor je uvijek bio dostupan kad god sam imao pitanje. Ono što sam dobio od prakse bilo je kako raditi s Gitom i dublje razumijevanje C#-a.",
+      "ssw": "Kao student, vrlo rano sam odlučio početi raditi kao tutor. Budući da su mi se najviše sviđali tečajevi koje nudi <a href=\"https://www.ssw.jku.at/\" target=\"_blank\">SSW</a>, iskoristio sam prvu priliku za rad u njihovom institutu. Tijekom godina obnašao sam mnoge pozicije tamo. Prvo, smio sam odgovarati na pitanja studenata prvog semestra za tečaj <a href=\"https://ssw.jku.at/Teaching/Lectures/SW1/VL/index.html\" target=\"_blank\">Razvoj softvera 1</a>. Kasnije sam ispravljao domaće zadaće za tečajeve <a href=\"https://ssw.jku.at/Teaching/Lectures/SW2/VL/index.html\" target=\"_blank\">Razvoj softvera 2</a> i sljedeće tečajeve <a href=\"https://ssw.jku.at/Teaching/Lectures/PSW2/2024/index.html\" target=\"_blank\">Prakza razvoja softvera 2</a> i <a href=\"https://ssw.jku.at/Teaching/Lectures/CB/VL/\" target=\"_blank\">Konstrukcija kompajlera</a>.",
+      "naschmax": "U <a href=\"https://www.naschmax.at/\", target=\"_blank\">Naschmaxu</a>, prvo iskustvo s poslom sam imao sa 17 godina. Radio sam tamo jednom tjedno vikendom uz školu. Moj posao je bio prodavati slatkiše na raznim lokacijama u Austriji. Uglavnom u Gornjoj Austriji, ali ponekad smo išli na veće festivale poput <a href=\"https://www.dult.at/de/\" target=\"_blank\">Salzburškog Dulta</a> ili <a href=\"https://www.villacherkirchtag.at/\" target=\"_blank\">Crkvenog sajma u Villachu</a>. <a href=\"https://urfahranermarkt.com/\" target=\"_blank\">Linz Urfix</a>, koji se održava dva puta godišnje, uvijek je bio zabavan.",
+      "master": "Na magistarskom studiju specijalizirao sam se za softversko inženjerstvo. Moj magistarski rad bavi se izradom alata za generiranje personaliziranih rasporeda za studij na JKU. Alat sam razvio zajedno s IM-om i <a href=\"https://www.ssw.jku.at/\" target=\"_blank\">SSW-om</a>. Rad se može pronaći <a href=\"/assets/documents/master_thesis.pdf\" target=\"_blank\">ovdje</a>.",
+      "bachelor": "Odmah nakon škole počeo sam studirati tehničku matematiku na JKU. Ali brzo sam shvatio da je previše suhoparno za mene. Stoga sam već u sljedećem semestru preusmjerio svoj fokus na računarstvo. Mislim da je to bila dobra odluka.",
+      "borg": "Prije nego što možete ići na sveučilište u Austriji, morate položiti maturu (austrijsku srednjoškolsku diplomu). To se ovdje dogodilo. Bio sam oduševljen što sam primio nagradu nakon diplome. U 7. razredu mogao sam služiti kao zamjenik studentskog predstavnika."
+    },
+    "papers": {
+      "uni": "Sveučilište",
+      "school": "Škola",
+      "master-thesis": "Magistarski rad",
+      "bachelor-thesis": "Diplomski rad",
+      "seminar-paper": "Seminarski rad",
+      "course-paper": "Tekst tečaja",
+      "vwa": "Predznanstveni rad",
+      "master": "Moj magistarski rad bavi se aplikacijom koja studentima omogućuje planiranje kolegija za nadolazeći semestar na JKU.",
+      "seminar2": "U ovom radu, Alexander Voglsperger i ja opisujemo neke ideje o analizi strukture podataka i preopterećenju memorije u neupravljanim jezicima.",
+      "bachelor": "Kao dio svog diplomskog rada, stvorio sam Moodle upravitelj koji preuzima zadaće s Moodlea i distribuira ih putem Discorda.",
+      "seminar1": "U ovom radu opisujemo aplikaciju s nekoliko imaginarnih pohrana i banaka za testiranje C# značajki async/await.",
+      "course": "U ovom radu uspoređujemo nekoliko alata za dijeljenje uživo. Cilj ovog rada je naučiti kako napisati dobre diplomske i magistarske radove.",
+      "vwa-description": "Do 2024. učenici su morali napisati rad u školi da bi bili primljeni na sveučilište. Moj je o matematičkoj konstanti Pi."
+    }
   },
-  "months": {
-    "1": "siječanj",
-    "2": "veljača",
-    "3": "ožujak",
-    "4": "travanj",
-    "5": "svibanj",
-    "6": "lipanj",
-    "7": "srpanj",
-    "8": "kolovoz",
-    "9": "rujan",
-    "10": "listopad",
-    "11": "studeni",
-    "12": "prosinac"
+  "time": {
+    "sincemy": "od {{ month }} {{ year }}",
+    "untilmy": "do {{ month }} {{ year }}",
+    "always": "Za uvjek",
+    "month": {
+      "1": "siječanj",
+      "2": "veljača",
+      "3": "ožujak",
+      "4": "travanj",
+      "5": "svibanj",
+      "6": "lipanj",
+      "7": "srpanj",
+      "8": "kolovoz",
+      "9": "rujan",
+      "10": "listopad",
+      "11": "studeni",
+      "12": "prosinac"
+    },
+    "month-genitive": {
+      "1": "siječnja",
+      "2": "veljače",
+      "3": "ožujka",
+      "4": "travnja",
+      "5": "svibnja",
+      "6": "lipnja",
+      "7": "srpnja",
+      "8": "kolovoza",
+      "9": "rujna",
+      "10": "listopada",
+      "11": "studenoga",
+      "12": "prosinca"
+    }
   },
   "letters": "č ć đ š ž Č Ć Đ Š Ž"
 }

@@ -1,10 +1,12 @@
 export interface Card {
   img: string;
   imgPosition: Position;
-  title: string;
-  topic?: string;
-  date?: string;
-  description: string;
+  titleKey: string;
+  topicKey?: string;
+  day?: number;
+  month?: number;
+  year?: number;
+  descriptionKey: string;
   link?: string;
 }
 

@@ -29,16 +29,19 @@
          }"
     >
       <h4>
-        {{ card.title }}
+        {{ card.titleKey | translate }}
       </h4>
-      @if (card.topic || card.date) {
+      @if (card.topicKey || card.year) {
         <p class="topic-date secondary">
-          {{ card.topic }} {{ card.topic && card.date ? '•' : '' }} {{ card.date }}
+          {{ card.topicKey | translate }} {{ card.topicKey && card.year ? '•' : '' }} {{ "time.dmy" | translate:{
+          day: card.day,
+          month: ('time.month.' + card.month) | translate,
+          year: card.year
+        } }}
+
         </p>
       }
-      <p class="description">
-        {{card.description}}
-      </p>
+      <p class="description" [innerHTML]="card.descriptionKey | translate"></p>
     </div>
     @if (card.imgPosition === Position.BOTTOM || card.imgPosition === Position.RIGHT) {
       <div class="image"

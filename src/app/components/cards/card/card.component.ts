@@ -2,13 +2,15 @@ import {Component, Input} from '@angular/core';
 import {Card, Position} from "../../../../model/Card";
 import {NgClass, NgTemplateOutlet} from "@angular/common";
 import {CardsComponent} from "../cards.component";
+import {TranslatePipe} from "@ngx-translate/core";
 
 @Component({
   selector: 'card',
   standalone: true,
   imports: [
     NgTemplateOutlet,
-    NgClass
+    NgClass,
+    TranslatePipe
   ],
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss'

@@ -1,9 +1,12 @@
 import {Component, Input} from '@angular/core';
 import {TimeEntry} from "../../../../model/TimeEntry";
+import {TranslatePipe} from "@ngx-translate/core";
 
 @Component({
   selector: 'timeline-entry',
-  imports: [],
+  imports: [
+    TranslatePipe
+  ],
   templateUrl: './timeline-entry.html',
   styleUrl: './timeline-entry.scss',
 })
